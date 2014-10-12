@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<% if @printer.condition == true %>
+<h2><%= link_to "このプリンターを使う", data_path %></h2>
+<% else %>
+<h3>このプリンターは現在使用中です</h3>
+<% end %>
+
 <p>
   <strong>Material:</strong>
   <%= @printer.material %>
@@ -50,5 +56,4 @@
   <%= @printer.user_id %>
 </p>
 
-<%= link_to 'Edit', edit_printer_path(@printer) %> |
 <%= link_to 'Back', printers_path %>

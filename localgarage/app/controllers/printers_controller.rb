@@ -1,6 +1,6 @@
 class PrintersController < ApplicationController
   before_action :set_printer, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:show]
   # GET /printers
   # GET /printers.json
   def index
@@ -25,6 +25,7 @@ class PrintersController < ApplicationController
   # POST /printers.json
   def create
     @printer = Printer.new(printer_params)
+    @printer.user_id = current_user.id
 
     respond_to do |format|
       if @printer.save

@@ -13,13 +13,14 @@
       <th>Image url</th>
       <th>Condition</th>
       <th>User</th>
-      <th colspan="3"></th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @printers.each do |printer| %>
       <tr>
+        <% if printer.user_id %>
         <td><%= printer.material %></td>
         <td><%= printer.machinemodel %></td>
         <td><%= printer.sizex %></td>
@@ -30,9 +31,12 @@
         <td><%= printer.image_url %></td>
         <td><%= printer.condition %></td>
         <td><%= printer.user_id %></td>
-        <td><%= link_to 'Show', printer %></td>
-        <td><%= link_to 'Edit', edit_printer_path(printer) %></td>
-        <td><%= link_to 'Destroy', printer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'このプリンターにする', printer %></td>
+        <% if printer.user_id == current_user.id %>
+        <td><%= link_to 'プリンター情報を修正する',  edit_printer_path(printer) %></td>
+        <td><%= link_to '登録したプリンターを削除する',  printer,  method: :delete,  data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
