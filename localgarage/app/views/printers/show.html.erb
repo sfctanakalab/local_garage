@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Material:</strong>
+  <%= @printer.material %>
+</p>
+
+<p>
+  <strong>Machinemodel:</strong>
+  <%= @printer.machinemodel %>
+</p>
+
+<p>
+  <strong>Sizex:</strong>
+  <%= @printer.sizex %>
+</p>
+
+<p>
+  <strong>Sizey:</strong>
+  <%= @printer.sizey %>
+</p>
+
+<p>
+  <strong>Sizez:</strong>
+  <%= @printer.sizez %>
+</p>
+
+<p>
+  <strong>Resolution:</strong>
+  <%= @printer.resolution %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @printer.location %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @printer.image_url %>
+</p>
+
+<p>
+  <strong>Condition:</strong>
+  <%= @printer.condition %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @printer.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_printer_path(@printer) %> |
+<%= link_to 'Back', printers_path %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  stl_url: MyString
+  gcode_url: MyString
+  output_time: 9.99
+  finish_signal: false
+  data_id: MyString
+
+two:
+  stl_url: MyString
+  gcode_url: MyString
+  output_time: 9.99
+  finish_signal: false
+  data_id: MyString

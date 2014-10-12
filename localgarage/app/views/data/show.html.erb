@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Stl url:</strong>
+  <%= @datum.stl_url %>
+</p>
+
+<p>
+  <strong>Gcode url:</strong>
+  <%= @datum.gcode_url %>
+</p>
+
+<p>
+  <strong>Output time:</strong>
+  <%= @datum.output_time %>
+</p>
+
+<p>
+  <strong>Finish signal:</strong>
+  <%= @datum.finish_signal %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @datum.data_id %>
+</p>
+
+<%= link_to 'Edit', edit_datum_path(@datum) %> |
+<%= link_to 'Back', data_path %>

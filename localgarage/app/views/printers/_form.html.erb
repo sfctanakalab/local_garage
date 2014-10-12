@@ -1,0 +1,57 @@
+<%= form_for(@printer) do |f| %>
+  <% if @printer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@printer.errors.count, "error") %> prohibited this printer from being saved:</h2>
+
+      <ul>
+      <% @printer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :material %><br>
+    <%= f.text_field :material %>
+  </div>
+  <div class="field">
+    <%= f.label :machinemodel %><br>
+    <%= f.text_field :machinemodel %>
+  </div>
+  <div class="field">
+    <%= f.label :sizex %><br>
+    <%= f.text_field :sizex %>
+  </div>
+  <div class="field">
+    <%= f.label :sizey %><br>
+    <%= f.text_field :sizey %>
+  </div>
+  <div class="field">
+    <%= f.label :sizez %><br>
+    <%= f.text_field :sizez %>
+  </div>
+  <div class="field">
+    <%= f.label :resolution %><br>
+    <%= f.text_field :resolution %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_area :location %>
+  </div>
+  <div class="field">
+    <%= f.label :image_url %><br>
+    <%= f.text_field :image_url %>
+  </div>
+  <div class="field">
+    <%= f.label :condition %><br>
+    <%= f.check_box :condition %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

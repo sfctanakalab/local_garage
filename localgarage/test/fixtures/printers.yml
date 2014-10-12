@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  material: MyString
+  machinemodel: MyString
+  sizex: 9.99
+  sizey: 9.99
+  sizez: 9.99
+  resolution: 9.99
+  location: MyText
+  image_url: MyString
+  condition: false
+  user_id: 1
+
+two:
+  material: MyString
+  machinemodel: MyString
+  sizex: 9.99
+  sizey: 9.99
+  sizez: 9.99
+  resolution: 9.99
+  location: MyText
+  image_url: MyString
+  condition: false
+  user_id: 1
