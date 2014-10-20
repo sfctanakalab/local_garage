@@ -35,6 +35,10 @@ gem 'cancancan'
 # form helper
 gem 'enum_help'
 
+gem 'twitter-bootswatch-rails',  '~> 3.1.1'
+gem 'twitter-bootswatch-rails-helpers'
+gem 'therubyracer'
+gem 'less-rails'
 # Use unicorn as the app server
 # gem 'unicorn'
 

@@ -18,9 +18,16 @@
   </thead>
 
   <tbody>
+    <%= form_tag printers_path,  :method => 'get' do %>
+        <p>
+        <%= "素材を検索する" %>
+        <%= text_field_tag :search,  params[:search] %>
+        <%= submit_tag "Search", :material => nil %>
+        </p>
+    <% end %>
     <% @printers.each do |printer| %>
       <tr>
-        <% if printer.user_id %>
+          <% if printer.user_id %>
         <td><%= printer.material %></td>
         <td><%= printer.machinemodel %></td>
         <td><%= printer.sizex %></td>
@@ -32,10 +39,12 @@
         <td><%= printer.condition %></td>
         <td><%= printer.user_id %></td>
         <td><%= link_to 'このプリンターにする', printer %></td>
+        <% if current_user %>
         <% if printer.user_id == current_user.id %>
         <td><%= link_to 'プリンター情報を修正する',  edit_printer_path(printer) %></td>
         <td><%= link_to '登録したプリンターを削除する',  printer,  method: :delete,  data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
+    <% end %>
+<% end %>
         <% end %>
       </tr>
     <% end %>

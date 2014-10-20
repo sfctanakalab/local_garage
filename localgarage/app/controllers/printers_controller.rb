@@ -4,7 +4,8 @@ class PrintersController < ApplicationController
   # GET /printers
   # GET /printers.json
   def index
-    @printers = Printer.all
+    @printers = Printer.search(params[:search])
+    @materials = Printer.all
   end
 
   # GET /printers/1
@@ -25,6 +26,7 @@ class PrintersController < ApplicationController
   # POST /printers.json
   def create
     @printer = Printer.new(printer_params)
+    # what is current_user.id?
     @printer.user_id = current_user.id
 
     respond_to do |format|
