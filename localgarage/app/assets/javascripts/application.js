@@ -11,8 +11,42 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
+//= require turbolinks
 //= require Cosmo/loader
 //= require Cosmo/bootswatch
 
+function incSearch(){
+  clearTimeout(incSearch.timeid);
+
+  incSearch.timeid = setTimeout(function(){
+    var query = tgtInput.value;
+    if(query.length == 0) return false;
+
+    jQuery.ajax({
+      type : 'GET',
+      url : '/printers/search',
+      data : {
+        q : query
+      },
+      timeout : 1500,
+      success:function(data){
+        if(data.result != "success") return false;
+        changeDom(data.lists);
+      },
+      error:function(){
+              return false;
+            }
+    });
+  }, 500);
+};
+incSearch.timeid = "";
+
+function changeDom(lists){
+  if(lists.length == 0) return false;
+};
+
+var tgtInput = document.getElementById('tgtInput');
+tgtInput.onkeydown = incSearch;
 
