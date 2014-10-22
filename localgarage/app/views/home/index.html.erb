@@ -1,4 +1,66 @@
-<p><%= link_to "プリンターを探す",  printers_path %></p>
 
-<img src="/images/indexbg.jpg", width=100% />
-<!-- <div style="background-image:url(/images/indexbg.jpg)" /> -->
+<div class="top_image">
+	<video poster="http://web.sfc.keio.ac.jp/~t13954tm/movie/sample.JPG" autoplay loop muted>
+		<source src="http://web.sfc.keio.ac.jp/~t13954tm/movie/sample.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+  	</video>
+</div>
+<div class="find_3d_printer">
+	<h4><%= link_to "プリンターを探す",  printers_path %></h4>
+</div>
+<div class="custom_container">
+	<div class="about">
+		<p>Our service wants to help you to realize your idea in very early stage. Please do not hesitate or give up to fabricate anymore. If you come up with some idea, you just find a 3D printer and send a 3D data through our service and operate a 3D printer directly to fabricate your idea.</p>
+		<p>(You don't need to buy a 3D printer or go to Fab Space or to order to a merchant anymore. we want to help your fabrication in early stage.)</p>
+	</div>
+	<div class="how_to_use">
+		<div class="title">
+			<h2>ローカルガレージの使い方</h2>
+		</div>
+		<div class="content">
+			<ul>
+				<li name="how_to_use_content_li">
+					<div class="li_inside">
+						<h3>1. Find your 3D printer</h3>
+						<div class="how_to_use_img" name="how_to_use_img"><%= image_tag('sample.JPG', :name=>"how_to_use_img") %></div>
+						<p>At first, please search your 3D printer located around you. Many types of 3D printers has been registered.</p>
+					</div>
+				</li>
+				<li name="how_to_use_content_li">
+					<div class="li_inside">
+						<h3>2. Fabricate</h3>
+						<div class="how_to_use_img" name="how_to_use_img"><%= image_tag('sample.JPG', :name=>"how_to_use_img") %></div>
+						<p>Secondly, please post your 3D data through our service. Our service will select the best slicer and CAM software related to your printer automatically, so you just post your 3D data and finish your work almost!! Our service support XXX.file format for now.</p>
+					</div>
+				</li>
+				<li name="how_to_use_content_li">
+					<div class="li_inside">
+						<h3>3. Deliver or Pick up</h3>
+						<div class="how_to_use_img" name="how_to_use_img"><%= image_tag('sample.JPG', :name=>"how_to_use_img") %></div>
+						<p>Lastly, just print it out !! You can monitor printing process on our service. We will give completion notice of printing to your email address. After printing out, you just drop in the printer location to pick up your product.</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="footer">
+	<ul class="footer_links">
+		<li>
+			<h2>local garage</h2>
+		</li>
+		<li>
+			<h4>企業情報</h4>
+		</li>
+		<li>
+			<h4>Local Garage おすすめ</h4>
+		</li>
+	</ul>
+	<div class="social_link">
+		<ul>
+			<li>facebook</li>
+			<li>twitter</li>
+			<li>google</li>
+		</ul>
+	</div>
+</div>
+<!-- <img src="/images/indexbg.jpg", width=100% /> -->

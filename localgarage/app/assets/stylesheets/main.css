@@ -1,0 +1,121 @@
+/***** main *****/
+body{
+	width: 100%;
+}
+h1{
+	margin: 0px;
+}
+/***** header *****/
+header{
+	width: 100%;
+	position: fixed;
+}
+header ul{
+	padding: 0px;
+	list-style: none;
+	display: table;
+}
+header li{
+	display: table-cell;
+}
+.header_custom_container{
+	display: table;
+	width: 100%;
+}
+.header_custom_container .header_cell{
+	display: table-cell;
+}
+.header_custom_container .site_name{
+	width: 225px;
+	padding: 10px 0px 0px 25px;
+}
+#site_name{
+	color: #fff;
+}
+.header_custom_container .custom_navigator{
+	text-align: right;
+}
+.header_custom_container .custom_navigator ul{
+	padding-right: 25px;
+	color: #fff;
+}
+.header_custom_container .custom_navigator a{
+	color: #fff;
+}
+.header_custom_container ul{
+	width: 100%;
+}
+/***** top image *****/
+.top_image{
+	width: 100%;
+	height: 400px;
+	overflow: hidden;
+	position: relative;
+	z-index: -1;
+}
+.top_image video{
+	width: 100%;
+	margin-top: -100px
+}
+/***** find 3d printer *****/
+.find_3d_printer{
+	width: 100%;
+	background-color: rgba(80,80,80,0.5);
+	text-align: center;
+	padding: 15px 0px 15px;
+	margin: -71px 0px 30px;
+}
+.find_3d_printer a{
+	color: #fff;
+}
+/***** custom container *****/
+.custom_container{
+	padding: 0px 5% 60px;
+}
+/***** about *****/
+.about{
+	padding: 20px 0px 20px;
+}
+/***** how to use *****/
+.how_to_use .title{
+	text-align: center;
+	padding-bottom: 20px;
+}
+.how_to_use .content ul{
+	list-style: none;
+	padding: 0px 0px 0px 0px;
+	display: table;
+}
+.how_to_use .content li{
+	width: 33.3333%;
+	display: table-cell;
+}
+.how_to_use .content li .li_inside{
+	margin: 15px;
+}
+.how_to_use .content li .li_inside .how_to_use_img{
+	width: 70%;
+	margin: 20px auto;
+	border-radius: 250px;
+	overflow: hidden;
+}
+.how_to_use .content li .li_inside img{
+	width: 100%;
+}
+/***** footer *****/
+.footer{
+	color: #aab7bc;
+	background-color: rgb(72,77,79);
+	padding: 20px 0px 50px;
+}
+.footer ul{
+	margin: 0px;
+}
+.footer .footer_links{
+	display: table;
+	padding: 0px 25px;
+	width: 100%;
+}
+.footer .footer_links li{
+	display: table-cell;
+}

@@ -3,6 +3,7 @@ class PrintersController < ApplicationController
   before_action :authenticate_user!, only: [:show]
   # GET /printers
   # GET /printers.json
+
   def index
     @printers = Printer.search(params[:search])
     @materials = Printer.all
