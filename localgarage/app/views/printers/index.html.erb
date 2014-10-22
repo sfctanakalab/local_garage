@@ -1,33 +1,30 @@
-<h1>Listing printers</h1>
-
-<table>
+<%- model_class = Printer -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Material</th>
-      <th>Machinemodel</th>
-      <th>Sizex</th>
-      <th>Sizey</th>
-      <th>Sizez</th>
-      <th>Resolution</th>
-      <th>Location</th>
-      <th>Image url</th>
-      <th>Condition</th>
-      <th>User</th>
-      <th colspan="1"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:material) %></th>
+      <th><%= model_class.human_attribute_name(:machinemodel) %></th>
+      <th><%= model_class.human_attribute_name(:sizex) %></th>
+      <th><%= model_class.human_attribute_name(:sizey) %></th>
+      <th><%= model_class.human_attribute_name(:sizez) %></th>
+      <th><%= model_class.human_attribute_name(:resolution) %></th>
+      <th><%= model_class.human_attribute_name(:location) %></th>
+      <th><%= model_class.human_attribute_name(:image_url) %></th>
+      <th><%= model_class.human_attribute_name(:condition) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:material_color) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
-    <%= form_tag printers_path,  :method => 'get' do %>
-        <p>
-        <%= "素材を検索する" %>
-        <%= text_field_tag :search,  params[:search] %>
-        <%= submit_tag "Search", :material => nil %>
-        </p>
-    <% end %>
     <% @printers.each do |printer| %>
       <tr>
-          <% if printer.user_id %>
+        <td><%= link_to printer.id, printer_path(printer) %></td>
         <td><%= printer.material %></td>
         <td><%= printer.machinemodel %></td>
         <td><%= printer.sizex %></td>
@@ -38,19 +35,22 @@
         <td><%= printer.image_url %></td>
         <td><%= printer.condition %></td>
         <td><%= printer.user_id %></td>
-        <td><%= link_to 'このプリンターにする', printer %></td>
-        <% if current_user %>
-        <% if printer.user_id == current_user.id %>
-        <td><%= link_to 'プリンター情報を修正する',  edit_printer_path(printer) %></td>
-        <td><%= link_to '登録したプリンターを削除する',  printer,  method: :delete,  data: { confirm: 'Are you sure?' } %></td>
-    <% end %>
-<% end %>
-        <% end %>
+        <td><%= printer.material_color %></td>
+        <td><%=l printer.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_printer_path(printer), :class => 'btn btn-primary btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      printer_path(printer),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-danger btn-xs' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Printer', new_printer_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_printer_path,
+            :class => 'btn btn-primary' %>
