@@ -4,6 +4,6 @@
 
 $ ->
     $('#new_search_form').on 'ajax:success',  (e,  printers) ->
-          $('tr.printer').hide()
-              ids = (printers.map (p) -> "#printer_#{p.id}").join(', ')
-                  $(ids).show()
+        $('tr.printer').hide()
+        ids = (printers.map (p) -> "#printer_#{p.id}").join(', ')
+        $(ids).show()
