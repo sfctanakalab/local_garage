@@ -73,6 +73,6 @@ class PrintersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def printer_params
-      params.require(:printer).permit(:material, :machinemodel, :sizex, :sizey, :sizez, :resolution, :location, :image_url, :condition, :user_id)
+      params.require(:printer).permit(:material, :material_color, :machinemodel, :sizex, :sizey, :sizez, :resolution, :location, :image_url, :condition, :user_id)
     end
 end
