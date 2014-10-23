@@ -16,6 +16,8 @@
 //= require jquery_ujs
 //= require Cosmo/loader
 //= require Cosmo/bootswatch
+//= require underscore
+//= require gmaps/google
 
 function incSearch(){
   clearTimeout(incSearch.timeid);
