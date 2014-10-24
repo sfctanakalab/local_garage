@@ -52,3 +52,5 @@ gem 'twitter-bootswatch-rails-helpers'
 
 gem "gmaps4rails"
 gem "geocoder"
+
+gem "websocket"
