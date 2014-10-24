@@ -13,7 +13,6 @@
         </script>
     </div>
     <div class="printer_list_right">
-<<<<<<< HEAD
         <div class="printer_list_container">
             <div class="filter_wrapper">
                 <div class="filter_column"><h3>Listing printers</h3></div>
@@ -40,58 +39,47 @@
                     </div>
                 </div>
             </div>
-
-                <!--
-                <thead>
-                    <tr>
-                      <th>Title</th>
-                      <th>LocationName</th>
-                      <th>Address</th>
-                      <th>Latitude</th>
-                      <th>Longitude</th>
-                      <th>Material</th>
-                      <th>Material_color</th>
-                      <th>Machinemodel</th>
-                      <th>Resolution</th>
-                      <th>Location</th>
-                      <th>Condition</th>
-                      <th colspan="1"></th>
-                    </tr>
-                </thead>
-                -->
             <div class="printers">
                 <%= content_tag_for :tr, @printers do |printer| %>
                     <% if printer.user_id %>
-                    <table>
-                        <tr>
-                            <td><%= printer.machinemodel %></td>
-                        </tr>
-                        <tr>
-                            <td><%= printer.resolution %></td>
-                        </tr>
-                        <tr>
-                            <td><%= printer.location %></td>
-                        </tr>
-                        <tr>
-                            <td><%= printer.condition %></td>
-                        </tr>
-                        <tr>
-                            <td><%= image_tag image_printer_path(printer) %></td>
-                        </tr>
-                        <tr>
-                            <td><%= link_to 'このプリンターにする', printer %></td>
-                        </tr>
-                        <% if current_user %>
-                            <% if printer.user_id == current_user.id %>
-                            <tr>
-                                <td><%= link_to 'プリンター情報を修正する',  edit_printer_path(printer) %></td>
-                            </tr>
-                            <tr>
-                                <td><%= link_to '登録したプリンターを削除する',  printer,  method: :delete,  data: { confirm: 'Are you sure?' } %></td>
-                            </tr>
-                            <% end %>
-                        <% end %>
-                    </table>
+                    <div class="printers_table_column">
+                        <div class="printers_table_column_2">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="printer_img">
+                                            <%= image_tag image_printer_path(printer) %>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><h4><%= printer.machinemodel %></h4></td>
+                                </tr>
+                                <tr>
+                                    <td><%= printer.resolution %></td>
+                                </tr>
+                                <tr>
+                                    <td><%= printer.location %></td>
+                                </tr>
+                                <!--<tr>
+                                    <td><%= printer.condition %></td>
+                                </tr>-->
+                                <tr>
+                                    <td><%= link_to 'このプリンターにする', printer %></td>
+                                </tr>
+                                <% if current_user %>
+                                    <% if printer.user_id == current_user.id %>
+                                        <tr>
+                                            <td><%= link_to 'プリンター情報を修正する',  edit_printer_path(printer) %></td>
+                                        </tr>
+                                        <tr>
+                                            <td><%= link_to '登録したプリンターを削除する',  printer,  method: :delete,  data: { confirm: 'Are you sure?' } %></td>
+                                        </tr>
+                                    <% end %>
+                                <% end %>
+                            </table>
+                        </div>
+                    </div>
                     <% end %>
                 <% end %>
                 <div><%= link_to 'New Printer', new_printer_path %></div>
