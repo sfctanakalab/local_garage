@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141024061543) do
+ActiveRecord::Schema.define(version: 20141024065144) do
 
   create_table "data", force: true do |t|
     t.string   "stl_url"
@@ -52,10 +52,13 @@ ActiveRecord::Schema.define(version: 20141024061543) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-<<<<<<< HEAD
-=======
+  end
+
+  create_table "printers_filaments", force: true do |t|
+    t.integer  "printer_id"
     t.integer  "filament_id"
->>>>>>> ba81592f2e3975d14c24cc734e821b1e12b9f234
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
