@@ -8,7 +8,7 @@ class Printer < ActiveRecord::Base
 
   def self.search(search)
     if search
-      Printer.where(['material LIKE ?',"%#{search}%"])
+      Printer.all
     else
       Printer.all
     end
