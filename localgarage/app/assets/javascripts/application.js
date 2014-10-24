@@ -14,8 +14,6 @@
 //= require turbolinks
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require Cosmo/loader
-//= require Cosmo/bootswatch
 //= require underscore
 //= require gmaps/google
 

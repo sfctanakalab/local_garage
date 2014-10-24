@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1>Listing printers</h1>
 
 <table>
@@ -30,6 +31,122 @@
         $(document).ready(function(){
             getParam();
         });
+
+<div class="printer_list_wrapper margin_top_70" id="plwrapper">
+    <div class="printer_list_left">
+        <div id="map" style='height:100%;'>
+        </div>
+        <script type="text/javascript">
+            handler = Gmaps.build('Google');
+            handler.buildMap({ provider: {},  internal: {id: 'map'}},  function(){
+                markers = handler.addMarkers(<%=raw @hash.to_json %>);
+                handler.bounds.extendWith(markers);
+                handler.fitMapToBounds();
+            });
+        </script>
+    </div>
+    <div class="printer_list_right">
+        <div class="printer_list_container">
+            <div class="filter_wrapper">
+                <div class="filter_column"><h3>Listing printers</h3></div>
+                <div class="filter_column">
+                    <div class="search_by_keyword">
+                        <%= form_tag printers_path,  :method => 'get' do %>
+                            <span>素材を検索する</span>
+                            <%= text_field_tag :search, params[:search], :class=>'input_text' %>
+                            <%= submit_tag "Search", :material => nil, :class=>'search_btn' %>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="filter_column">
+                    <div class="search_printer_checkbox_wrapper">
+                        <div class="checkbox_container">
+                            <div>Filament</div>
+                            <div class="checkbox" id="checkbox1">
+                                <label><%=check_box_tag :ABS, "aps" %>ABS</label>
+                            </div>
+                            <div class="checkbox" id="checkbox2">
+                                <label><%=check_box_tag :PLA, "pla" %>PLA</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <!--
+                <thead>
+                    <tr>
+                      <th>Title</th>
+                      <th>LocationName</th>
+                      <th>Address</th>
+                      <th>Latitude</th>
+                      <th>Longitude</th>
+                      <th>Material</th>
+                      <th>Material_color</th>
+                      <th>Machinemodel</th>
+                      <th>Resolution</th>
+                      <th>Location</th>
+                      <th>Condition</th>
+                      <th colspan="1"></th>
+                    </tr>
+                </thead>
+                -->
+            <div class="printers">
+                <%= content_tag_for :tr, @printers do |printer| %>
+                    <% if printer.user_id %>
+                    <table>
+                        <tr>
+                            <td><%= printer.machinemodel %></td>
+                        </tr>
+                        <tr>
+                            <td><%= printer.resolution %></td>
+                        </tr>
+                        <tr>
+                            <td><%= printer.location %></td>
+                        </tr>
+                        <tr>
+                            <td><%= printer.condition %></td>
+                        </tr>
+                        <tr>
+                            <td><%= image_tag image_printer_path(printer) %></td>
+                        </tr>
+                        <tr>
+                            <td><%= link_to 'このプリンターにする', printer %></td>
+                        </tr>
+                        <% if current_user %>
+                            <% if printer.user_id == current_user.id %>
+                            <tr>
+                                <td><%= link_to 'プリンター情報を修正する',  edit_printer_path(printer) %></td>
+                            </tr>
+                            <tr>
+                                <td><%= link_to '登録したプリンターを削除する',  printer,  method: :delete,  data: { confirm: 'Are you sure?' } %></td>
+                            </tr>
+                            <% end %>
+                        <% end %>
+                    </table>
+                    <% end %>
+                <% end %>
+                <div><%= link_to 'New Printer', new_printer_path %></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+}
+</style>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        getParam();
+    });
 
         function getParam() {
             var url   = location.href;
