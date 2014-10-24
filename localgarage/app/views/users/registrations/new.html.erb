@@ -1,18 +1,24 @@
-<h2>Sign up</h2>
+<div class="custom_container margin_top_100">
+    <div class="signup_form_wrapper">
+        <div class="signup_form_container">
+			<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+			<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+			  <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+			  <div><%= f.label :email %><br />
+			  <%= f.email_field :email, autofocus: true, :class=>'input_text' %></div>
 
-  <div><%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+			  <div><%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
+			    <%= f.password_field :password, autocomplete: "off", :class=>'input_text' %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+			  <div><%= f.label :password_confirmation %><br />
+			    <%= f.password_field :password_confirmation, autocomplete: "off", :class=>'input_text' %></div>
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+			  <div><%= f.submit "Sign up", :class=>'signup_btn' %></div>
+			<% end %>
 
-<%= render "users/shared/links" %>
+			<%= render "users/shared/links" %>
+		</div>
+	</div>
+</div>

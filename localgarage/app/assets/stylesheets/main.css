@@ -7,12 +7,29 @@ h1{
 	margin: 0px;
 }
 a{
-	color: rgb(10,120,250);
+	color: rgb(43,173,222);
 	text-decoration: none;
+}
+a:hover{
+	color: rgb(53,183,232);
+}
+input{
+	border-radius: 2px;
+	border: solid 1px #ccc;
+}
+input:focus{
+	outline: none;
+	border: solid 1px #999;
+}
+.page_header{
+	margin: 50px 0px 40px;
 }
 /***** margin *****/
 .margin_top_70{
 	margin-top: 60px;
+}
+.margin_top_100{
+	margin-top: 100px;
 }
 /***** header *****/
 header{
@@ -137,9 +154,11 @@ header li{
 .printer_list_right{
 	width: 60%;
 	position: absolute;
+	padding-bottom: 20px;
 	right: 0;
 	z-index: 1;
-	box-shadow: -2px 0px 4px 0px rgba(90,90,90,0.1);
+	box-shadow: -1px 0px 1px 0px rgba(15,15,15,0.2);
+	background-color: #f8f8f8;
 }
 .printer_list_container{
 	width: 100%;
@@ -154,11 +173,25 @@ header li{
 	width: 50%;
 	float: left;
 }
+.printers .printers_table_column a{
+	text-decoration: none;
+}
+.printers .printers_table_column a:hover{
+	text-decoration: underline;
+}
 .printers .printers_table_column_2{
 	padding: 10px;
 }
 .printers .printers_table_column h4{
 	margin-bottom: 0px;
+}
+.printers .printers_table_column h4 a{
+	color: rgb(80,80,80);
+	text-decoration: none;
+	font-weight: 400;
+}
+.printers .printers_table_column h4 a:hover{
+	text-decoration: underline;
 }
 .printers{
 	padding: 20px 10px 20px;
@@ -167,10 +200,24 @@ header li{
 	width: 100%;
 	height: 200px;
 	overflow: hidden;
+	border-radius: 2px;
+}
+.printers .printer_info{
+	padding: 8px 15px 10px;
+	background-color: #fff;
+	position: relative;
+	z-index: 2;
+	margin-top: -43px;
+}
+.printer_info h4{
+	margin-top: 0px;
+	padding-top: 5px;
 }
 /***** search printer *****/
 .filter_wrapper{
 	width: 100%;
+	background-color: #fff;
+	border-bottom: solid 1px #efefef;
 }
 .filter_column{
 	width: 100%;
@@ -195,12 +242,14 @@ header li{
 	color: #fff;
 	border:none;
 	border-radius: 2px;
-	background-color: rgb(10,120,250);
+	background-color: rgb(43,173,222);
+}
+.search_by_keyword .search_btn:hover{
+	background-color: rgb(53,183,232);
 }
 .search_printer_checkbox_wrapper{
 	padding: 20px 0px 20px;
 	margin: 0px 20px 0px;
-	border-bottom: solid 1px #efefef;
 }
 .search_printer_checkbox_wrapper .checkbox_container{
 	display: table;
@@ -209,12 +258,122 @@ header li{
 .search_printer_checkbox_wrapper .checkbox{
 	display: table-cell;
 }
+/***** new printer *****/
+.new_printer_title{
+	padding: 0px 5% 0px;
+	text-align: center;
+}
+.new_printer_content{
+	padding-top: 60px;
+	background-color: #f8f8f8;
+}
+/***** new printer content *****/
+.new_printer_content .control-label{
+	display: table-cell;
+	width: 150px;
+}
+.new_printer_content .form-control{
+	display: table-cell;
+	width: 100%;
+}
+.filter_column .new_printer{
+	padding: 20px 0px 20px;
+	margin: 0px 20px 0px;
+	border-bottom: solid 1px #efefef;
+}
+.new_printer_btn{
+	color: #fff;
+	padding: 5px 10px;
+	text-decoration: none;
+	background-color: rgb(43,173,222);
+}
+.new_printer_btn:hover{
+	color: #fff;
+	padding: 5px 10px;
+	text-decoration: none;
+	background-color: rgb(53,183,232);
+}
 /***** printer details *****/
 .printer_info .printer_img{
 	width: 50%;
 }
 .printer_info .printer_img img{
 	width: 100%;
+}
+/***** edit form *****/
+.edit_form_wrapper{
+	width: 100%;
+}
+.edit_form_container{
+	width: 350px;
+	margin: auto;
+}
+.edit_form_container input{
+	width: 100%;
+}
+.edit_form_container .input_text{
+	padding: 6px 10px;
+}
+/***** signup form *****/
+.signup_form_wrapper{
+	width: 100%;
+}
+.signup_form_container{
+	width: 350px;
+	margin: auto;
+}
+.signup_form_container .input_text{
+	padding: 6px 10px;
+}
+.signup_form_container input{
+	width: 100%;
+}
+.signup_btn{
+	color: rgb(255,255,255);
+	margin-top: 20px;
+	padding: 10px;
+	border-radius: 2px;
+	background-color: rgb(43,173,222);
+	border: none;
+}
+/***** login form *****/
+.login_btn{
+	color: rgb(255,255,255);
+	margin-top: 20px;
+	padding: 10px;
+	border-radius: 2px;
+	background-color: rgb(43,173,222);
+	border: none;
+}
+/***** update form *****/
+.update_btn{
+	color: rgb(255,255,255);
+	margin-top: 20px;
+	padding: 10px;
+	border-radius: 2px;
+	background-color: rgb(43,173,222);
+	border: none;
+}
+/***** cancel *****/
+.cancel_my_account{
+	margin-top: 40px;
+}
+.cancel_btn{
+	color: rgb(255,255,255);
+	margin-top: 5px;
+	padding: 10px;
+	border-radius: 2px;
+	background-color: rgb(148,150,152);
+	border: none;
+}
+/***** create printer *****/
+.create_printer_btn{
+	color: rgb(255,255,255);
+	margin-top: 20px;
+	padding: 10px;
+	border-radius: 2px;
+	background-color: rgb(43,173,222);
+	border: none;
 }
 /***** footer *****/
 .footer{
@@ -232,4 +391,9 @@ header li{
 }
 .footer .footer_links li{
 	display: table-cell;
+}
+/*----------------------------------------------------------------------*/
+.form-group{
+	display: table;
+	width: 100%;
 }

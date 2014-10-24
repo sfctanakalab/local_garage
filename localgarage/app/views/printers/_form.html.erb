@@ -40,8 +40,9 @@
     <%= f.check_box :condition, :class => 'form-control' %>
   </div>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
+  <div class="form-group">
+    <label class="control-label"></label>
+    <%= f.submit nil, :class => 'create_printer_btn' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 printers_path, :class => 'btn' %>
   </div>
