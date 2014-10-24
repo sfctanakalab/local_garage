@@ -37,10 +37,10 @@ gem 'cancancan'
 # form helper
 gem 'enum_help'
 
-#gem 'therubyracer'
-#gem 'less-rails'
-#gem 'twitter-bootswatch-rails',  '~> 3.1.1'
-#gem 'twitter-bootswatch-rails-helpers'
+gem 'therubyracer'
+gem 'less-rails'
+gem 'twitter-bootswatch-rails',  '~> 3.1.1'
+gem 'twitter-bootswatch-rails-helpers'
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -55,3 +55,6 @@ gem "geocoder"
 
 gem "websocket-rails"
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
+
+#database seed handling
+gem 'seed-fu', '~> 2.3'
