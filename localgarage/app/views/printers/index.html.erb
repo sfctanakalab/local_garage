@@ -6,6 +6,7 @@
         <div class="printer_list_container">
             <h1>Listing printers</h1>
 
+<<<<<<< HEAD
             <div class="filter_wrapper">
                 <div class="search_by_keyword filter_column">
                     <%= form_tag printers_path,  :method => 'get' do %>
@@ -14,6 +15,55 @@
                     <%= submit_tag "Search", :material => nil, :class=>'search_btn' %>
                     <% end %>
                 </div>
+=======
+<<<<<<< HEAD
+<div style='width: 800px;'>
+    <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+
+<script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {},  internal: {id: 'map'}},  function(){
+        markers = handler.addMarkers(<%=raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+    });
+</script>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>LocationName</th>
+      <th>Address</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Material</th>
+      <th>Material_color</th>
+      <th>Machinemodel</th>
+      <th>Resolution</th>
+      <th>Location</th>
+      <th>Condition</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+=======
+        <div class="filter_wrapper">
+            <div class="search_by_keyword filter_column">
+            <%= form_tag printers_path,  :method => 'get' do %>
+            <span>素材を検索する</span>
+            <%= text_field_tag :search, params[:search], :class=>'input_text' %>
+            <%= submit_tag "Search", :material => nil, :class=>'search_btn' %>
+            <% end %>
+        </div>
+>>>>>>> fd01bc8a1254b18f420b3860502bdf55c1d9f6e5
+
+        <div class="search_printer_checkbox_wrapper filter_column">
+            <div>Filament</div>
+            <div class="checkbox" id="checkbox1">
+                <label><%=check_box_tag :ABS, "aps" %>ABS</lable>
+>>>>>>> 2bf5d5c8f336dad228057be75a04ef87ab571d13
             </div>
 
             <div class="search_printer_checkbox_wrapper filter_column">
@@ -120,5 +170,39 @@ body{
             location.href='http://localhost:3000/printers';
           }
         });
+<<<<<<< HEAD
+    </script>
+
+
+
+<% end %>
+    <%= content_tag_for :tr, @printers do |printer| %>
+        <% if printer.user_id %>
+            <td><%= printer.machinemodel %></td>
+            <td><%= printer.resolution %></td>
+            <td><%= printer.location %></td>
+            <td><%= printer.condition %></td>
+            <td><%= printer.title %></td>
+            <td><%= printer.description %></td>
+            <td><%= printer.address %></td>
+            <td><%= printer.latitude %></td>
+            <td><%= printer.longitude %></td>
+            <td><%= link_to 'このプリンターにする', printer %></td>
+            <% if current_user %>
+                <% if printer.user_id == current_user.id %>
+                    <td><%= link_to 'プリンター情報を修正する',  edit_printer_path(printer) %></td>
+                    <td><%= link_to '登録したプリンターを削除する',  printer,  method: :delete,  data: { confirm: 'Are you sure?' } %></td>
+                <% end %>
+            <% end %>
+        <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Printer', new_printer_path %>
+=======
     });
 </script>
+>>>>>>> fd01bc8a1254b18f420b3860502bdf55c1d9f6e5
