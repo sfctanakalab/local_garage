@@ -52,10 +52,6 @@ ActiveRecord::Schema.define(version: 20141024061543) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-<<<<<<< HEAD
-=======
-    t.integer  "filament_id"
->>>>>>> ba81592f2e3975d14c24cc734e821b1e12b9f234
   end
 
   create_table "users", force: true do |t|
