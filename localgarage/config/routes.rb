@@ -4,7 +4,12 @@ Rails.application.routes.draw do
 
   root 'home#index'
   resources :data
-  resources :printers
+
+  resources :printers do
+    member { get :image }
+  end
+  
+  resources :filaments
   resources :maps
 
   # The priority is based upon order of creation: first created -> highest priority.

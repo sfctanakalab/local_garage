@@ -1,14 +1,23 @@
 /***** main *****/
 body{
 	width: 100%;
+	height: 100%;
 }
 h1{
 	margin: 0px;
+}
+/***** margin *****/
+.margin_top_70{
+	margin-top: 60px;
 }
 /***** header *****/
 header{
 	width: 100%;
 	position: fixed;
+	top: 0;
+	z-index: 10;
+	background-color: #fff;
+	border-bottom: solid 1px rgb(230,230,230);
 }
 header ul{
 	padding: 0px;
@@ -30,20 +39,27 @@ header li{
 	padding: 10px 0px 0px 25px;
 }
 #site_name{
-	color: #fff;
+}
+#site_name a{
+	color: #555;
+	text-decoration: none;
 }
 .header_custom_container .custom_navigator{
 	text-align: right;
 }
 .header_custom_container .custom_navigator ul{
 	padding-right: 25px;
-	color: #fff;
+	color: #555;
 }
 .header_custom_container .custom_navigator a{
-	color: #fff;
+	color: #555;
 }
 .header_custom_container ul{
 	width: 100%;
+}
+/***** notice *****/
+.notice{
+	display: none;
 }
 /***** top image *****/
 .top_image{
@@ -101,6 +117,71 @@ header li{
 }
 .how_to_use .content li .li_inside img{
 	width: 100%;
+}
+/***** printer list *****/
+.printer_list_wrapper{
+	width: 100%;
+}
+.printer_list_left{
+	width: 40%;
+	height: 100%;
+	position: fixed;
+	z-index: 1;
+	background-color: #ddd;
+	padding: 0px;
+}
+.printer_list_right{
+	width: 60%;
+	position: absolute;
+	right: 0;
+	box-shadow: 0px -2px 0px 0px rgba(90,90,90,0.5);
+}
+.printer_list_container{
+	width: 100%;
+}
+.printer_list_container table{
+	width: 100%;
+}
+/***** search printer *****/
+.filter_wrapper{
+	width: 100%;
+}
+.filter_column{
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+}
+.filter_column h3{
+	padding: 20px 0px 20px;
+	margin: 0px 20px 0px;
+	border-bottom: solid 1px #efefef;
+}
+.search_by_keyword{
+	padding: 20px 0px 20px;
+	margin: 0px 20px 0px;
+	border-bottom: solid 1px #efefef;
+}
+.search_by_keyword .input_text{
+	border-radius: 2px;
+	border: 1px solid #cfcfcf;
+}
+.search_by_keyword .search_btn{
+	color: #fff;
+	border:none;
+	border-radius: 2px;
+	background-color: rgb(0,120,250);
+}
+.search_printer_checkbox_wrapper{
+	padding: 20px 0px 20px;
+	margin: 0px 20px 0px;
+	border-bottom: solid 1px #efefef;
+}
+.search_printer_checkbox_wrapper .checkbox_container{
+	display: table;
+	width: 100%;
+}
+.search_printer_checkbox_wrapper .checkbox{
+	display: table-cell;
 }
 /***** footer *****/
 .footer{

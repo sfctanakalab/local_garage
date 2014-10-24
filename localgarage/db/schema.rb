@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141023055624) do
+ActiveRecord::Schema.define(version: 20141024100757) do
 
   create_table "data", force: true do |t|
     t.string   "stl_url"
@@ -25,9 +25,11 @@ ActiveRecord::Schema.define(version: 20141023055624) do
 
   create_table "filaments", force: true do |t|
     t.string   "material"
-    t.string   "color"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "color_r"
+    t.integer  "color_g"
+    t.integer  "color_b"
   end
 
   create_table "maps", force: true do |t|
@@ -39,6 +41,18 @@ ActiveRecord::Schema.define(version: 20141023055624) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "printer_filament_links", force: true do |t|
+    t.integer  "printer_id"
+    t.integer  "filament_id"
+    t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "printer_filament_links", ["filament_id"], name: "index_printer_filament_links_on_filament_id"
+  add_index "printer_filament_links", ["printer_id", "filament_id"], name: "index_printer_filament_links_on_printer_id_and_filament_id", unique: true
+  add_index "printer_filament_links", ["printer_id"], name: "index_printer_filament_links_on_printer_id"
 
   create_table "printers", force: true do |t|
     t.string   "machinemodel"
@@ -52,7 +66,19 @@ ActiveRecord::Schema.define(version: 20141023055624) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "description"
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "title"
+    t.binary   "image"
+  end
+
+  create_table "printers_filaments", force: true do |t|
+    t.integer  "printer_id"
     t.integer  "filament_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

@@ -1,104 +1,166 @@
-<h1>Listing printers</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Material</th>
-      <th>Material_color</th>
-      <th>Machinemodel</th>
-      <th>Resolution</th>
-      <th>Location</th>
-      <th>Condition</th>
-      <th colspan="1"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <%= form_tag printers_path,  :method => 'get' do %>
-        <p><%= "素材を検索する" %>
-    <%= text_field_tag :search,  params[:search] %>
-    <%= submit_tag "Search", :material => nil %>
-
-
-    <div id="checkbox1">
-        <label><%=check_box_tag :ABS, "aps" %>ABS</lable>
-    </div>
-    <div id="checkbox2">
-        <label><%=check_box_tag :PLA, "pla" %>PLA</lable>
-    </div>
-    <script>
-        $(document).ready(function(){
-            getParam();
-        });
- 
-        function getParam() {
-            var url   = location.href;
-            if(url.indexOf("?") != -1){
-              parameters    = url.split("?");
-              params   = parameters[1].split("&");
-              var paramsArray = [];
-              for ( i = 0; i < params.length; i++ ) {
-                  neet = params[i].split("=");
-                  paramsArray.push(neet[0]);
-                  paramsArray[neet[0]] = neet[1];
-              }
-              var categoryKey = paramsArray["search"];
-              if(categoryKey == "abs"){
-                document.getElementById('checkbox1').innerHTML = '<label><%=check_box_tag :ABS, "aps", true%>ABS</lable>';
-              }
-              if(categoryKey == "pla"){
-                document.getElementById('checkbox2').innerHTML = '<label><%=check_box_tag :PLA, "pla", true%>PLA</lable>';
-              }
-            }else{
-              document.getElementById('checkbox1').innerHTML = '<label><%=check_box_tag :ABS, "aps", false%>ABS</lable>';
-              document.getElementById('checkbox2').innerHTML = '<label><%=check_box_tag :PLA, "pla", false%>PLA</lable>';
-            }
-        }
-
-        $(function(){
-            $("#checkbox1 :checkbox").click(function(){
-              if($("#checkbox1 :checked").length > 0){
-                location.href='http://localhost:3000/printers?utf8=%E2%9C%93&search=abs&commit=Search';
-              }else{
-                location.href='http://localhost:3000/printers';
-              }
+<div class="printer_list_wrapper margin_top_70" id="plwrapper">
+    <div class="printer_list_left">
+        <div id="map" style='height:100%;'>
+        </div>
+        <script type="text/javascript">
+            handler = Gmaps.build('Google');
+            handler.buildMap({ provider: {},  internal: {id: 'map'}},  function(){
+                markers = handler.addMarkers(<%=raw @hash.to_json %>);
+                handler.bounds.extendWith(markers);
+                handler.fitMapToBounds();
             });
-        });
+        </script>
+    </div>
+    <div class="printer_list_right">
+        <div class="printer_list_container">
+            <div class="filter_wrapper">
+                <div class="filter_column"><h3>Listing printers</h3></div>
+                <div class="filter_column">
+                    <div class="search_by_keyword">
+                        <%= form_tag printers_path,  :method => 'get' do %>
+                            <span>素材を検索する</span>
+                            <%= text_field_tag :search, params[:search], :class=>'input_text' %>
+                            <%= submit_tag "Search", :material => nil, :class=>'search_btn' %>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="filter_column">
+                    <div class="search_printer_checkbox_wrapper">
+                        <div class="checkbox_container">
+                            <div>Filament</div>
+                            <div class="checkbox" id="checkbox1">
+                                <label><%=check_box_tag :ABS, "aps" %>ABS</label>
+                            </div>
+                            <div class="checkbox" id="checkbox2">
+                                <label><%=check_box_tag :PLA, "pla" %>PLA</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        $(function(){
-            $("#checkbox2 :checkbox").click(function(){
-              if($("#checkbox2 :checked").length > 0){
-                location.href='http://localhost:3000/printers?utf8=%E2%9C%93&search=pla&commit=Search';
-              }else{
-                location.href='http://localhost:3000/printers';
-              }
-            });
-        });
-    </script>
-
-    
-
-<% end %>
-    <%= content_tag_for :tr, @printers do |printer| %>
-        <% if printer.user_id %>
-            <td><%= printer.material %></td>
-            <td><%= printer.material_color %></td>
-            <td><%= printer.machinemodel %></td>
-            <td><%= printer.resolution %></td>
-            <td><%= printer.location %></td>
-            <td><%= printer.condition %></td>
-            <td><%= link_to 'このプリンターにする', printer %></td>
-            <% if current_user %>
-                <% if printer.user_id == current_user.id %>
-                    <td><%= link_to 'プリンター情報を修正する',  edit_printer_path(printer) %></td>
-                    <td><%= link_to '登録したプリンターを削除する',  printer,  method: :delete,  data: { confirm: 'Are you sure?' } %></td>
+                <!--
+                <thead>
+                    <tr>
+                      <th>Title</th>
+                      <th>LocationName</th>
+                      <th>Address</th>
+                      <th>Latitude</th>
+                      <th>Longitude</th>
+                      <th>Material</th>
+                      <th>Material_color</th>
+                      <th>Machinemodel</th>
+                      <th>Resolution</th>
+                      <th>Location</th>
+                      <th>Condition</th>
+                      <th colspan="1"></th>
+                    </tr>
+                </thead>
+                -->
+            <div class="printers">
+                <%= content_tag_for :tr, @printers do |printer| %>
+                    <% if printer.user_id %>
+                    <table>
+                        <tr>
+                            <td><%= printer.machinemodel %></td>
+                        </tr>
+                        <tr>
+                            <td><%= printer.resolution %></td>
+                        </tr>
+                        <tr>
+                            <td><%= printer.location %></td>
+                        </tr>
+                        <tr>
+                            <td><%= printer.condition %></td>
+                        </tr>
+                        <tr>
+                            <td><%= image_tag image_printer_path(printer) %></td>
+                        </tr>
+                        <tr>
+                            <td><%= link_to 'このプリンターにする', printer %></td>
+                        </tr>
+                        <% if current_user %>
+                            <% if printer.user_id == current_user.id %>
+                            <tr>
+                                <td><%= link_to 'プリンター情報を修正する',  edit_printer_path(printer) %></td>
+                            </tr>
+                            <tr>
+                                <td><%= link_to '登録したプリンターを削除する',  printer,  method: :delete,  data: { confirm: 'Are you sure?' } %></td>
+                            </tr>
+                            <% end %>
+                        <% end %>
+                    </table>
+                    <% end %>
                 <% end %>
-            <% end %>
-        <% end %>
-    <% end %>
-  </tbody>
-</table>
+                <div><%= link_to 'New Printer', new_printer_path %></div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<br>
 
-<%= link_to 'New Printer', new_printer_path %>
+<style>
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+}
+</style>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        getParam();
+    });
+
+    function getParam() {
+        var url   = location.href;
+        if(url.indexOf("?") != -1){
+          parameters    = url.split("?");
+          params   = parameters[1].split("&");
+          var paramsArray = [];
+          for ( i = 0; i < params.length; i++ ) {
+              neet = params[i].split("=");
+              paramsArray.push(neet[0]);
+              paramsArray[neet[0]] = neet[1];
+          }
+          var categoryKey = paramsArray["search"];
+          if(categoryKey == "abs"){
+            document.getElementById('checkbox1').innerHTML = '<label><%=check_box_tag :ABS, "aps", true%>ABS</lable>';
+          }
+          if(categoryKey == "pla"){
+            document.getElementById('checkbox2').innerHTML = '<label><%=check_box_tag :PLA, "pla", true%>PLA</lable>';
+          }
+        }else{
+          document.getElementById('checkbox1').innerHTML = '<label><%=check_box_tag :ABS, "aps", false%>ABS</lable>';
+          document.getElementById('checkbox2').innerHTML = '<label><%=check_box_tag :PLA, "pla", false%>PLA</lable>';
+        }
+    }
+
+    $(function(){
+        $("#checkbox1 :checkbox").click(function(){
+          if($("#checkbox1 :checked").length > 0){
+            location.href='http://localhost:3000/printers?utf8=%E2%9C%93&search=abs&commit=Search';
+          }else{
+            location.href='http://localhost:3000/printers';
+          }
+        });
+    });
+
+    $(function(){
+        $("#checkbox2 :checkbox").click(function(){
+          if($("#checkbox2 :checked").length > 0){
+            location.href='http://localhost:3000/printers?utf8=%E2%9C%93&search=pla&commit=Search';
+          }else{
+            location.href='http://localhost:3000/printers';
+          }
+        });
+    });
+
+    function resizeHeight() {
+        document.getElementById('plwrapper').style.height = window.innerHeight - 60 + "px";
+    }
+    resizeHeight();
+</script>
