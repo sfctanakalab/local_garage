@@ -14,4 +14,15 @@ class Printer < ActiveRecord::Base
     end
   end
 
+  def getId(material,color)
+    f = Filament.where(["material = ? and color = ?", material, color])
+    if f.count != 0
+      f = f[0]
+    else
+      f = Filament.new
+      f = f[0]
+    end
+    filament_id = f
+  end
+  
 end

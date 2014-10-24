@@ -1,56 +1,43 @@
-<%= form_for @printer, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for @printer do |f| %>
+
+<% if @printer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@printer.errors.count, "error") %> prohibited this map from being saved:</h2>
+
+      <ul>
+      <% @printer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="form-group">
-    <%= f.label :material, :class => 'control-label' %>
-    <%= f.text_field :material, :class => 'form-control' %>
+    <%= f.label :location_name, :class => 'control-label' %>
+    <%= f.text_field :description, :class => 'form-control' %>
+  </div> 
+  <div class="form-group">
+    <%= f.label :address, :class => 'control-label' %>
+    <%= f.text_field :address, :class => 'form-control' %>
   </div>
+  
   <div class="form-group">
-    <%= f.label :machinemodel, :class => 'control-label' %>
+    <%= f.label :machine_name, :class => 'control-label' %>
     <%= f.text_field :machinemodel, :class => 'form-control' %>
-
-  <div class="field">
-    <%= f.label :material_color %><br>
-    <%= f.text_field :material_color %>
-  </div>
-  <div class="field">
-    <%= f.label :machinemodel %><br>
-    <%= f.text_field :machinemodel %>
-
-  </div>
-  <div class="form-group">
-    <%= f.label :sizex, :class => 'control-label' %>
-    <%= f.text_field :sizex, :class => 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :sizey, :class => 'control-label' %>
-    <%= f.text_field :sizey, :class => 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :sizez, :class => 'control-label' %>
-    <%= f.text_field :sizez, :class => 'form-control' %>
-  </div>
+  </div> 
+  
   <div class="form-group">
     <%= f.label :resolution, :class => 'control-label' %>
     <%= f.text_field :resolution, :class => 'form-control' %>
   </div>
+
   <div class="form-group">
-    <%= f.label :location, :class => 'control-label' %>
-    <%= f.text_area :location, :class => 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :image_url, :class => 'control-label' %>
-    <%= f.text_field :image_url, :class => 'form-control' %>
+    <%= f.label :image, :class => 'control-label' %>
+    <%= f.file_field :image, accept: "image/jpeg", :class => 'form-control' %>
   </div>
   <div class="form-group">
     <%= f.label :condition, :class => 'control-label' %>
     <%= f.check_box :condition, :class => 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :user_id, :class => 'control-label' %>
-    <%= f.number_field :user_id, :class => 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :material_color, :class => 'control-label' %>
-    <%= f.text_field :material_color, :class => 'form-control' %>
   </div>
 
   <div class="form-actions">
