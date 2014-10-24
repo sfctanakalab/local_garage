@@ -7,12 +7,12 @@ class PrintersController < ApplicationController
   def index
     @printer = Printer.all
     @printers = Printer.search(params[:search])
-    @materials = Printer.all
     @hash = Gmaps4rails.build_markers(@printer) do |printer,  marker|
       marker.lat printer.latitude
       marker.lng printer.longitude
       marker.infowindow printer.description
       marker.json({title: printer.title})
+
     end
   end
 
