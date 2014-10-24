@@ -6,7 +6,8 @@ class PrintersController < ApplicationController
 
   def index
     @printer = Printer.all
-    @printers = Printer.search(params[:search])
+    @printers = Printer.all
+    @hoge = params[:search]
     @hash = Gmaps4rails.build_markers(@printer) do |printer,  marker|
       marker.lat printer.latitude
       marker.lng printer.longitude
@@ -20,6 +21,21 @@ class PrintersController < ApplicationController
   # GET /printers/1
   # GET /printers/1.json
   def show
+    # @printerfilamentlink = PrinterFilamentLink.new(printerfilamentlink_params)
+    # p = @printer
+    # @printerfilamentlink.printer_id = p.id
+    # @printerfilamentlink.filament_id = filament_id
+
+    # respond_to do |format|
+    #   if @printerfilamentlink.save
+    #     format.html { redirect_to @printer, notice: 'Printer was successfully created.' }
+    #     format.json { render :show, status: :created, location: @printerfilamentlink }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @printerfilamentlink.errors, status: :unprocessable_entity }
+    #   end
+    # end
+
   end
 
   # GET /printers/new
@@ -39,6 +55,7 @@ class PrintersController < ApplicationController
     @printer.user_id = current_user.id
     # upload image
     @printer.image = params[:printer][:image].read 
+    @printer.printer_id = params[:id]
 
     respond_to do |format|
       if @printer.save
@@ -95,4 +112,8 @@ class PrintersController < ApplicationController
     def printer_params
       params.require(:printer).permit(:machinemodel, :sizex, :sizey, :sizez, :resolution, :location, :image_url, :condition, :user_id, :title, :description, :address, :latitude, :longitude)
     end
+    def printerfilamentlink_params
+      params.permit(:printer_id, :filament_id)
+    end
+  
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141024100757) do
+ActiveRecord::Schema.define(version: 20141024165154) do
 
   create_table "data", force: true do |t|
     t.string   "stl_url"
@@ -27,9 +27,7 @@ ActiveRecord::Schema.define(version: 20141024100757) do
     t.string   "material"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "color_r"
-    t.integer  "color_g"
-    t.integer  "color_b"
+    t.string   "color"
   end
 
   create_table "maps", force: true do |t|
