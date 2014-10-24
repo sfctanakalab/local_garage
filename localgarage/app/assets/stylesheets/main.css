@@ -5,10 +5,15 @@ body{
 h1{
 	margin: 0px;
 }
+/***** margin *****/
+.margin_top_70{
+	margin-top: 70px;
+}
 /***** header *****/
 header{
 	width: 100%;
 	position: fixed;
+	top: 0;
 }
 header ul{
 	padding: 0px;
@@ -30,20 +35,27 @@ header li{
 	padding: 10px 0px 0px 25px;
 }
 #site_name{
-	color: #fff;
+}
+#site_name a{
+	color: #555;
+	text-decoration: none;
 }
 .header_custom_container .custom_navigator{
 	text-align: right;
 }
 .header_custom_container .custom_navigator ul{
 	padding-right: 25px;
-	color: #fff;
+	color: #555;
 }
 .header_custom_container .custom_navigator a{
-	color: #fff;
+	color: #555;
 }
 .header_custom_container ul{
 	width: 100%;
+}
+/***** notice *****/
+.notice{
+	display: none;
 }
 /***** top image *****/
 .top_image{
@@ -101,6 +113,42 @@ header li{
 }
 .how_to_use .content li .li_inside img{
 	width: 100%;
+}
+/***** printer list *****/
+.printer_list_wrapper{
+	display: table;
+	width: 100%;
+}
+.printer_list_left{
+	width: 50%;
+	display: table-cell;
+	background-color: #ddd;
+}
+.printer_list_right{
+	width: 50%;
+	display: table-cell;
+}
+/***** search printer *****/
+.filter_column{
+	width: 100%;
+	padding: 20px 0px 20px;
+	border-bottom: solid 1px #efefef;
+}
+.search_by_keyword .input_text{
+	border-radius: 2px;
+	border: 1px solid #cfcfcf;
+}
+.search_by_keyword .search_btn{
+	color: #fff;
+	border:none;
+	border-radius: 2px;
+	background-color: rgb(0,120,250);
+}
+.search_printer_checkbox_wrapper{
+	display: table;
+}
+.search_printer_checkbox_wrapper .checkbox{
+	display: table-cell;
 }
 /***** footer *****/
 .footer{
