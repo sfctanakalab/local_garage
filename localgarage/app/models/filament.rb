@@ -1,3 +1,4 @@
 class Filament < ActiveRecord::Base
-    has_and_belongs_to_many :printers
+  has_many :printer_filament_links
+  has_many :printers, :through => :printer_filament_links
 end
