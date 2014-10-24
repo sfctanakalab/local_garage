@@ -12,6 +12,7 @@ class PrintersController < ApplicationController
       marker.lng printer.longitude
       marker.infowindow printer.description
       marker.json({title: printer.title})
+    
 
     end
   end
@@ -48,11 +49,15 @@ class PrintersController < ApplicationController
         format.json { render json: @printer.errors, status: :unprocessable_entity }
       end
     end
+
+    
   end
 
   # PATCH/PUT /printers/1
   # PATCH/PUT /printers/1.json
   def update
+
+    @printer.image = params[:printer][:image].read 
     respond_to do |format|
       if @printer.update(printer_params)
         format.html { redirect_to @printer, notice: 'Printer was successfully updated.' }
@@ -75,11 +80,13 @@ class PrintersController < ApplicationController
   end
 
   def image
-    send_data(@printer.image, disposition:inline)
+    send_data(@printer.image, disposition: :inline)
   end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    
     def set_printer
       @printer = Printer.find(params[:id])
     end
