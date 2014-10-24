@@ -1,8 +1,33 @@
-<h1>Listing printers</h1>
+<div class="printer_list_wrapper margin_top_70">
+    <div class="printer_list_left">
+        google maps
+    </div>
+    <div class="printer_list_right">
+        <h1>Listing printers</h1>
+
+<<<<<<< HEAD
+<div style='width: 800px;'>
+    <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+
+<script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {},  internal: {id: 'map'}},  function(){
+        markers = handler.addMarkers(<%=raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+    });
+</script>
+
 
 <table>
   <thead>
     <tr>
+      <th>Title</th>
+      <th>LocationName</th>
+      <th>Address</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
       <th>Material</th>
       <th>Material_color</th>
       <th>Machinemodel</th>
@@ -12,68 +37,113 @@
       <th colspan="1"></th>
     </tr>
   </thead>
+=======
+        <div class="filter_wrapper">
+            <div class="search_by_keyword filter_column">
+            <%= form_tag printers_path,  :method => 'get' do %>
+            <span>素材を検索する</span>
+            <%= text_field_tag :search, params[:search], :class=>'input_text' %>
+            <%= submit_tag "Search", :material => nil, :class=>'search_btn' %>
+            <% end %>
+        </div>
+>>>>>>> fd01bc8a1254b18f420b3860502bdf55c1d9f6e5
 
-  <tbody>
-    <%= form_tag printers_path,  :method => 'get' do %>
-        <p><%= "素材を検索する" %>
-    <%= text_field_tag :search,  params[:search] %>
-    <%= submit_tag "Search", :material => nil %>
+        <div class="search_printer_checkbox_wrapper filter_column">
+            <div>Filament</div>
+            <div class="checkbox" id="checkbox1">
+                <label><%=check_box_tag :ABS, "aps" %>ABS</lable>
+            </div>
+            <div class="checkbox" id="checkbox2">
+                <label><%=check_box_tag :PLA, "pla" %>PLA</lable>
+            </div>
+        </div>
 
+        <table>
+            <thead>
+                <tr>
+                    <th>Material</th>
+                    <th>Material_color</th>
+                    <th>Machinemodel</th>
+                    <th>Resolution</th>
+                    <th>Location</th>
+                    <th>Condition</th>
+                    <th colspan="1"></th>
+                </tr>
+            </thead>
 
-    <div id="checkbox1">
-        <label><%=check_box_tag :ABS, "aps" %>ABS</lable>
+            <tbody>
+                <%= content_tag_for :tr, @printers do |printer| %>
+                    <% if printer.user_id %>
+                        <td><%= printer.machinemodel %></td>
+                        <td><%= printer.resolution %></td>
+                        <td><%= printer.location %></td>
+                        <td><%= printer.condition %></td>
+                        <td><%= link_to 'このプリンターにする', printer %></td>
+                        <% if current_user %>
+                            <% if printer.user_id == current_user.id %>
+                                <td><%= link_to 'プリンター情報を修正する',  edit_printer_path(printer) %></td>
+                                <td><%= link_to '登録したプリンターを削除する',  printer,  method: :delete,  data: { confirm: 'Are you sure?' } %></td>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+            </tbody>
+        </table>
+        <div>
+            <%= link_to 'New Printer', new_printer_path %>
+        </div>
     </div>
-    <div id="checkbox2">
-        <label><%=check_box_tag :PLA, "pla" %>PLA</lable>
-    </div>
-    <script>
-        $(document).ready(function(){
-            getParam();
-        });
+</div>
 
-        function getParam() {
-            var url   = location.href;
-            if(url.indexOf("?") != -1){
-              parameters    = url.split("?");
-              params   = parameters[1].split("&");
-              var paramsArray = [];
-              for ( i = 0; i < params.length; i++ ) {
-                  neet = params[i].split("=");
-                  paramsArray.push(neet[0]);
-                  paramsArray[neet[0]] = neet[1];
-              }
-              var categoryKey = paramsArray["search"];
-              if(categoryKey == "abs"){
-                document.getElementById('checkbox1').innerHTML = '<label><%=check_box_tag :ABS, "aps", true%>ABS</lable>';
-              }
-              if(categoryKey == "pla"){
-                document.getElementById('checkbox2').innerHTML = '<label><%=check_box_tag :PLA, "pla", true%>PLA</lable>';
-              }
-            }else{
-              document.getElementById('checkbox1').innerHTML = '<label><%=check_box_tag :ABS, "aps", false%>ABS</lable>';
-              document.getElementById('checkbox2').innerHTML = '<label><%=check_box_tag :PLA, "pla", false%>PLA</lable>';
-            }
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        getParam();
+    });
+
+    function getParam() {
+        var url   = location.href;
+        if(url.indexOf("?") != -1){
+          parameters    = url.split("?");
+          params   = parameters[1].split("&");
+          var paramsArray = [];
+          for ( i = 0; i < params.length; i++ ) {
+              neet = params[i].split("=");
+              paramsArray.push(neet[0]);
+              paramsArray[neet[0]] = neet[1];
+          }
+          var categoryKey = paramsArray["search"];
+          if(categoryKey == "abs"){
+            document.getElementById('checkbox1').innerHTML = '<label><%=check_box_tag :ABS, "aps", true%>ABS</lable>';
+          }
+          if(categoryKey == "pla"){
+            document.getElementById('checkbox2').innerHTML = '<label><%=check_box_tag :PLA, "pla", true%>PLA</lable>';
+          }
+        }else{
+          document.getElementById('checkbox1').innerHTML = '<label><%=check_box_tag :ABS, "aps", false%>ABS</lable>';
+          document.getElementById('checkbox2').innerHTML = '<label><%=check_box_tag :PLA, "pla", false%>PLA</lable>';
         }
+    }
 
-        $(function(){
-            $("#checkbox1 :checkbox").click(function(){
-              if($("#checkbox1 :checked").length > 0){
-                location.href='http://localhost:3000/printers?utf8=%E2%9C%93&search=abs&commit=Search';
-              }else{
-                location.href='http://localhost:3000/printers';
-              }
-            });
+    $(function(){
+        $("#checkbox1 :checkbox").click(function(){
+          if($("#checkbox1 :checked").length > 0){
+            location.href='http://localhost:3000/printers?utf8=%E2%9C%93&search=abs&commit=Search';
+          }else{
+            location.href='http://localhost:3000/printers';
+          }
         });
+    });
 
-        $(function(){
-            $("#checkbox2 :checkbox").click(function(){
-              if($("#checkbox2 :checked").length > 0){
-                location.href='http://localhost:3000/printers?utf8=%E2%9C%93&search=pla&commit=Search';
-              }else{
-                location.href='http://localhost:3000/printers';
-              }
-            });
+    $(function(){
+        $("#checkbox2 :checkbox").click(function(){
+          if($("#checkbox2 :checked").length > 0){
+            location.href='http://localhost:3000/printers?utf8=%E2%9C%93&search=pla&commit=Search';
+          }else{
+            location.href='http://localhost:3000/printers';
+          }
         });
+<<<<<<< HEAD
     </script>
 
 
@@ -85,6 +155,11 @@
             <td><%= printer.resolution %></td>
             <td><%= printer.location %></td>
             <td><%= printer.condition %></td>
+            <td><%= printer.title %></td>
+            <td><%= printer.description %></td>
+            <td><%= printer.address %></td>
+            <td><%= printer.latitude %></td>
+            <td><%= printer.longitude %></td>
             <td><%= link_to 'このプリンターにする', printer %></td>
             <% if current_user %>
                 <% if printer.user_id == current_user.id %>
@@ -100,3 +175,7 @@
 <br>
 
 <%= link_to 'New Printer', new_printer_path %>
+=======
+    });
+</script>
+>>>>>>> fd01bc8a1254b18f420b3860502bdf55c1d9f6e5
