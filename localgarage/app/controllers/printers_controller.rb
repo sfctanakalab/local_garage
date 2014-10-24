@@ -1,5 +1,5 @@
 class PrintersController < ApplicationController
-  before_action :set_printer, only: [:show, :edit, :update, :destroy]
+  before_action :set_printer, only: [:show, :edit, :update, :destroy, :image]
   before_action :authenticate_user!, only: [:show]
   # GET /printers
   # GET /printers.json
@@ -36,6 +36,8 @@ class PrintersController < ApplicationController
     @printer = Printer.new(printer_params)
     # what is current_user.id?
     @printer.user_id = current_user.id
+    # upload image
+    @printer.image = params[:printer][:image].read 
 
     respond_to do |format|
       if @printer.save
@@ -70,6 +72,10 @@ class PrintersController < ApplicationController
       format.html { redirect_to printers_url, notice: 'Printer was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def image
+    send_data(@printer.image, disposition:inline)
   end
 
   private

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141024093041) do
+ActiveRecord::Schema.define(version: 20141024100757) do
 
   create_table "data", force: true do |t|
     t.string   "stl_url"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20141024093041) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "title"
+    t.binary   "image"
   end
 
   create_table "printers_filaments", force: true do |t|

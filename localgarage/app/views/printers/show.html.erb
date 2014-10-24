@@ -16,8 +16,8 @@
   <dd><%= @printer.resolution %></dd>
   <dt><strong><%= model_class.human_attribute_name(:location) %>:</strong></dt>
   <dd><%= @printer.location %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:image_url) %>:</strong></dt>
-  <dd><%= @printer.image_url %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong></dt>
+  <dd><%= image_tag image_printer_path(@printer) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:condition) %>:</strong></dt>
   <dd><%= @printer.condition %></dd>
   <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
