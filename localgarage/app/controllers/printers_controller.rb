@@ -5,8 +5,15 @@ class PrintersController < ApplicationController
   # GET /printers.json
 
   def index
+    @printer = Printer.all
     @printers = Printer.search(params[:search])
     @materials = Printer.all
+    @hash = Gmaps4rails.build_markers(@printer) do |printer,  marker|
+      marker.lat printer.latitude
+      marker.lng printer.longitude
+      marker.infowindow printer.description
+      marker.json({title: printer.title})
+    end
   end
 
   # GET /printers/1
@@ -73,6 +80,6 @@ class PrintersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def printer_params
-      params.require(:printer).permit(:material, :material_color, :machinemodel, :sizex, :sizey, :sizez, :resolution, :location, :image_url, :condition, :user_id)
+      params.require(:printer).permit(:machinemodel, :sizex, :sizey, :sizez, :resolution, :location, :image_url, :condition, :user_id, :title, :description, :address, :latitude, :longitude)
     end
 end

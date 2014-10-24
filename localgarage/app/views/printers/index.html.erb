@@ -1,8 +1,27 @@
 <h1>Listing printers</h1>
 
+<div style='width: 800px;'>
+    <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+
+<script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {},  internal: {id: 'map'}},  function(){
+        markers = handler.addMarkers(<%=raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+    });
+</script>
+
+
 <table>
   <thead>
     <tr>
+      <th>Title</th>
+      <th>LocationName</th>
+      <th>Address</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
       <th>Material</th>
       <th>Material_color</th>
       <th>Machinemodel</th>
@@ -85,6 +104,11 @@
             <td><%= printer.resolution %></td>
             <td><%= printer.location %></td>
             <td><%= printer.condition %></td>
+            <td><%= printer.title %></td>
+            <td><%= printer.description %></td>
+            <td><%= printer.address %></td>
+            <td><%= printer.latitude %></td>
+            <td><%= printer.longitude %></td>
             <td><%= link_to 'このプリンターにする', printer %></td>
             <% if current_user %>
                 <% if printer.user_id == current_user.id %>
