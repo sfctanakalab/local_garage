@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :data
 
-  resources :printers
+  resources :printers do
+    resources :filaments
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

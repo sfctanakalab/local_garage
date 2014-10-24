@@ -1,6 +1,6 @@
 class Printer < ActiveRecord::Base
  # belongs_to :user
-  belongs_to :filament
+  has_and_belongs_to_many :filament
 
   def self.search(search)
     if search

@@ -1,3 +1,3 @@
 class Filament < ActiveRecord::Base
-    has_many :printer
+    has_and_belongs_to_many :printer
 end

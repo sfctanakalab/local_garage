@@ -4,10 +4,6 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:material) %>:</strong></dt>
-  <dd><%= @printer.material %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:material_color) %>:</strong></dt>
-  <dd><%= @printer.material_color %></dd>
   <dt><strong><%= model_class.human_attribute_name(:machinemodel) %>:</strong></dt>
   <dd><%= @printer.machinemodel %></dd>
   <dt><strong><%= model_class.human_attribute_name(:sizex) %>:</strong></dt>
@@ -26,8 +22,6 @@
   <dd><%= @printer.condition %></dd>
   <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
   <dd><%= @printer.user_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:material_color) %>:</strong></dt>
-  <dd><%= @printer.material_color %></dd>
 </dl>
 
 <div class="form-actions">
@@ -52,12 +46,10 @@
 
 <!-- <p>
   <strong>Material:</strong>
-  <%= @printer.material %>
 </p>
 
 <p>
   <strong>Material_color:</strong>
-  <%= @printer.material_color %>
 </p>
 
 <p>

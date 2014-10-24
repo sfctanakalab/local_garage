@@ -30,7 +30,7 @@
         $(document).ready(function(){
             getParam();
         });
- 
+
         function getParam() {
             var url   = location.href;
             if(url.indexOf("?") != -1){
@@ -76,13 +76,11 @@
         });
     </script>
 
-    
+
 
 <% end %>
     <%= content_tag_for :tr, @printers do |printer| %>
         <% if printer.user_id %>
-            <td><%= printer.material %></td>
-            <td><%= printer.material_color %></td>
             <td><%= printer.machinemodel %></td>
             <td><%= printer.resolution %></td>
             <td><%= printer.location %></td>
