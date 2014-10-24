@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
-  resources :maps
 
   devise_for :users
 
   root 'home#index'
   resources :data
+<<<<<<< HEAD
 
   resources :printers do
     resources :filaments
   end
+=======
+  resources :printers
+  resources :maps
+>>>>>>> ba81592f2e3975d14c24cc734e821b1e12b9f234
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
