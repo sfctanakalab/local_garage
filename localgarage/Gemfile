@@ -53,5 +53,5 @@ gem 'enum_help'
 gem "gmaps4rails"
 gem "geocoder"
 
-gem "websocket"
+gem "websocket-rails"
 gem 'tzinfo-data', platforms: [:mingw, :mswin]

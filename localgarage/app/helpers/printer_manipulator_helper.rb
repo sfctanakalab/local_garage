@@ -1,0 +1,2 @@
+module PrinterManipulatorHelper
+end
