@@ -8,13 +8,16 @@ h1{
 }
 /***** margin *****/
 .margin_top_70{
-	margin-top: 70px;
+	margin-top: 60px;
 }
 /***** header *****/
 header{
 	width: 100%;
 	position: fixed;
 	top: 0;
+	z-index: 10;
+	background-color: #fff;
+	border-bottom: solid 1px rgb(230,230,230);
 }
 header ul{
 	padding: 0px;
@@ -117,26 +120,45 @@ header li{
 }
 /***** printer list *****/
 .printer_list_wrapper{
-	display: table;
 	width: 100%;
-	height: 100%;
 }
 .printer_list_left{
 	width: 40%;
-	display: table-cell;
+	height: 100%;
+	position: fixed;
+	z-index: 1;
 	background-color: #ddd;
+	padding: 0px;
 }
 .printer_list_right{
 	width: 60%;
-	display: table-cell;
+	position: absolute;
+	right: 0;
+	box-shadow: 0px -2px 0px 0px rgba(90,90,90,0.5);
 }
-.printer_list_right{
-	padding-left: 25px;
+.printer_list_container{
+	width: 100%;
+}
+.printer_list_container table{
+	width: 100%;
 }
 /***** search printer *****/
+.filter_wrapper{
+	width: 100%;
+}
 .filter_column{
 	width: 100%;
+	padding: 0px;
+	margin: 0px;
+}
+.filter_column h3{
 	padding: 20px 0px 20px;
+	margin: 0px 20px 0px;
+	border-bottom: solid 1px #efefef;
+}
+.search_by_keyword{
+	padding: 20px 0px 20px;
+	margin: 0px 20px 0px;
 	border-bottom: solid 1px #efefef;
 }
 .search_by_keyword .input_text{
@@ -150,7 +172,13 @@ header li{
 	background-color: rgb(0,120,250);
 }
 .search_printer_checkbox_wrapper{
+	padding: 20px 0px 20px;
+	margin: 0px 20px 0px;
+	border-bottom: solid 1px #efefef;
+}
+.search_printer_checkbox_wrapper .checkbox_container{
 	display: table;
+	width: 100%;
 }
 .search_printer_checkbox_wrapper .checkbox{
 	display: table-cell;
