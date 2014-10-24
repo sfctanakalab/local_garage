@@ -78,7 +78,7 @@
                         <td><%= printer.resolution %></td>
                         <td><%= printer.location %></td>
                         <td><%= printer.condition %></td>
-                        <td><%= image_tag image_printer_path(image) %></td>
+                        <td><%= image_tag image_printer_path(printer) %></td>
                         <td><%= link_to 'このプリンターにする', printer %></td>
                         <% if current_user %>
                             <% if printer.user_id == current_user.id %>
