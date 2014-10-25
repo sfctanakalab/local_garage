@@ -31,6 +31,10 @@ input:focus{
 .margin_top_100{
 	margin-top: 100px;
 }
+/***** padding *****/
+.padding_top_70{
+	padding-top: 70px;
+}
 /***** header *****/
 header{
 	width: 100%;
@@ -57,13 +61,14 @@ header li{
 }
 .header_custom_container .site_name{
 	width: 225px;
-	padding: 10px 0px 0px 25px;
+	padding: 5px 0px 15px 25px;
 }
 #site_name{
 }
 #site_name a{
 	color: #555;
 	text-decoration: none;
+	font-size: 28px;
 }
 .header_custom_container .custom_navigator{
 	text-align: right;
@@ -207,7 +212,6 @@ header li{
 	background-color: #fff;
 	position: relative;
 	z-index: 2;
-	margin-top: -43px;
 }
 .printer_info h4{
 	margin-top: 0px;
@@ -294,11 +298,83 @@ header li{
 	background-color: rgb(53,183,232);
 }
 /***** printer details *****/
+.printer_info_title h1{
+	padding: 0px 9% 20px;
+}
+.printer_info_content{
+	background-color: #f8f8f8
+}
 .printer_info .printer_img{
-	width: 50%;
+	width: 100%;
 }
 .printer_info .printer_img img{
 	width: 100%;
+}
+.printer_info{
+	width: 100%;
+	float: left;
+}
+.printer_info_wrapper{
+	width: 100%;
+	padding: 50px 0px 30px;
+	color: rgb(72,77,79);
+}
+.printer_info_column{
+	display: table;
+	width: 100%;
+	padding: 20px 0px 20px;
+	border-top: solid 1px #ddd;
+}
+.printer_info_column label{
+	display: table-cell;
+	width: 180px;
+}
+.printer_info_column .content{
+	width: 100%;
+}
+.printer_info_sidebar{
+	width: 40%;
+	float: right;
+	position: relative;
+	right: 0;
+}
+.printer_info_sidebar .use_this_printer{
+	text-align: center;
+	padding: 10px;
+	border-radius: 2px;
+	background-color: rgb(43,173,222);
+	-moz-transition-property: background-color;
+	-webkit-transition-property: background-color;
+	-o-transition-property: background-color;
+	-ms-transition-property: background-color;
+
+	-moz-transition-duration:0.3s;
+	-webkit-transition-duration:0.3s;
+	-o-transition-duration:0.3s;
+	-ms-transition-duration:0.3s;
+}
+.printer_info_sidebar .use_this_printer:hover{
+	background-color: rgb(53,183,232);
+}
+.use_this_printer h4{
+	
+}
+.use_this_printer a{
+	color: #fff;
+	text-decoration: none;
+}
+.printer_info_sidebar .sidebar_container{
+	background-color: #fff;
+	border: solid 1px #dfdfdf;
+}
+.printer_info_sidebar .sidebar_container{
+	margin: 0px 40px 0px;
+	padding: 20px 20px;
+}
+.printer_info_main_content{
+	width: 55%;
+	margin-left: 5%;
+	float: left;
 }
 /***** edit form *****/
 .edit_form_wrapper{
