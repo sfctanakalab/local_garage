@@ -12,6 +12,15 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.fields_for :printer_filament_links do |pfl| %>
+      <%= pfl.label '素材' %><br>
+      <%= pfl.collection_select :filament_id, @filament, :id, :material %>
+    <% end %>
+  </div>
+
+  
+
   <div class="form-group">
     <%= f.label :location_name, :class => 'control-label' %>
     <%= f.text_field :description, :class => 'form-control' %>
