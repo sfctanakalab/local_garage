@@ -14,6 +14,7 @@
 //= require turbolinks
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require websocket_rails/main
 //= require underscore
 //= require gmaps/google
 
@@ -49,4 +50,5 @@ function changeDom(lists){
 
 var tgtInput = document.getElementById('tgtInput');
 tgtInput.onkeydown = incSearch;
+
 
