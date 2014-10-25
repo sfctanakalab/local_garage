@@ -105,12 +105,9 @@ GEM
     rake (10.3.2)
     rdoc (4.1.2)
       json (~> 1.4)
-<<<<<<< HEAD
-=======
     redis (3.1.0)
     redis-objects (1.0.1)
       redis (>= 3.0.2)
->>>>>>> develop
     ref (1.0.5)
     responders (1.1.1)
       railties (>= 3.2, < 4.2)
