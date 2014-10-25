@@ -1,0 +1,11 @@
+<script type="text/javascript">
+    var dispatcher = new WebSocketRails('localhost:3000/websocket');
+
+    var channel = dispatcher.subscribe('printer_status');
+
+    channel.bind('printer_stat', function(data) {
+            console.log('channel event received: ' + data);
+    });
+
+    channel.unbind('printer_stat');
+</script>
