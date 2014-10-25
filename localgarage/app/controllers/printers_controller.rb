@@ -39,7 +39,10 @@ class PrintersController < ApplicationController
   # GET /printers/new
   def new
     @printer = Printer.new
+    @filament = Filament.all
     @printer.printer_filament_links.build
+    @printer.filaments.build
+
   end
 
   # GET /printers/1/edit
@@ -110,7 +113,7 @@ class PrintersController < ApplicationController
     def printer_params
       params.require(:printer).permit(:machinemodel, :sizex, :sizey, :sizez, 
         :resolution, :location, :image_url, :condition, :user_id, :title, :description,
-        :address, :latitude, :longitude, :printer_filament_links_attributes => [:id, :printer_id])
+        :address, :latitude, :longitude, :printer_filament_links_attributes => [:id, :printer_id, :filament_id])
     end
     def printerfilamentlink_params
       params.permit(:printer_id, :filament_id)

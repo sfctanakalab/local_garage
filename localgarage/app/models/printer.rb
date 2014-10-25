@@ -4,6 +4,7 @@ class Printer < ActiveRecord::Base
   has_many :printer_filament_links
   has_many :filaments, :through => :printer_filament_links
   accepts_nested_attributes_for :printer_filament_links
+  accepts_nested_attributes_for :filaments
   geocoded_by :address
   after_validation :geocode
 
