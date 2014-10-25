@@ -138,13 +138,10 @@ GEM
     therubyracer (0.12.1)
       libv8 (~> 3.16.14.0)
       ref
-<<<<<<< HEAD
-=======
     thin (1.6.3)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0)
       rack (~> 1.0)
->>>>>>> develop
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
