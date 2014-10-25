@@ -13,8 +13,6 @@ class PrintersController < ApplicationController
       marker.lng printer.longitude
       marker.infowindow printer.description
       marker.json({title: printer.title})
-    
-
     end
   end
 
@@ -41,6 +39,7 @@ class PrintersController < ApplicationController
   # GET /printers/new
   def new
     @printer = Printer.new
+    @printer.printer_filament_links.build
   end
 
   # GET /printers/1/edit
@@ -51,7 +50,6 @@ class PrintersController < ApplicationController
   # POST /printers.json
   def create
     @printer = Printer.new(printer_params)
-    # what is current_user.id?
     @printer.user_id = current_user.id
     # upload image
     @printer.image = params[:printer][:image].read 
@@ -110,7 +108,9 @@ class PrintersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def printer_params
-      params.require(:printer).permit(:machinemodel, :sizex, :sizey, :sizez, :resolution, :location, :image_url, :condition, :user_id, :title, :description, :address, :latitude, :longitude)
+      params.require(:printer).permit(:machinemodel, :sizex, :sizey, :sizez, 
+        :resolution, :location, :image_url, :condition, :user_id, :title, :description,
+        :address, :latitude, :longitude, :printer_filament_links_attributes => [:id, :printer_id])
     end
     def printerfilamentlink_params
       params.permit(:printer_id, :filament_id)
