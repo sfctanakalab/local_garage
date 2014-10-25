@@ -55,7 +55,7 @@ class PrintersController < ApplicationController
     @printer.user_id = current_user.id
     # upload image
     @printer.image = params[:printer][:image].read 
-    @printer.printer_id = params[:id]
+    # @printer.printer_id = params[:id]
 
     respond_to do |format|
       if @printer.save
