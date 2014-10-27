@@ -4,17 +4,17 @@
 	<video poster="http://web.sfc.keio.ac.jp/~t13954tm/movie/sample.JPG" autoplay loop muted>
 		<source src="http://web.sfc.keio.ac.jp/~t13954tm/movie/sample.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
   	</video>
-  	<div id="lets_print"><h1>Fabricate your idea</h1></div>
+  	<div id="lets_print"><h1>Fabricate your idea</h1><br>
+  	<h4>Our service wants to help you to realize your idea in very early stage. <br>
+		If you come up with some idea, you just find the best 3D printer and operate it directly to fabricate your idea.</h4>
+	</div>
 </div>
 <div class="find_3d_printer">
 
     <h4><%= link_to "Browse Printers",  printers_path, 'data-no-turbolink' => true %></h4>
 </div>
 <div class="custom_container">
-	<div class="about">
-		<h4>Our service wants to help you to realize your idea in very early stage. <br>
-			If you come up with some idea, you just find the best 3D printer and operate it directly to fabricate your idea.</h4>
-	</div>
+	
 	<div class="how_to_use">
 		<div class="title">
 			<h2>HOW TO USE LOCAL GARAGE</h2>
@@ -25,7 +25,7 @@
 				<li name="how_to_use_content_li">
 					<div class="li_inside">
 						<h3>1. Find your 3D printer</h3>
-						<div class="how_to_use_img" name="how_to_use_img"><%= image_tag('sample.JPG', :name=>"how_to_use_img") %></div>
+						<div class="how_to_use_img" name="how_to_use_img"><%= image_tag('scoovo.jpg', :name=>"how_to_use_img") %></div>
 						<p>At first, please search your 3D printer located around you. Many types of 3D printers has been registered.
 						<br>
 						Details -> Our service wants to help you to realize your idea in early stage. To fabricate your idea, we provide options of material property, colour, printer resolution. You can search the best 3D printer to fabricate your idea.</p>
