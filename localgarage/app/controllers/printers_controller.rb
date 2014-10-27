@@ -5,44 +5,52 @@ class PrintersController < ApplicationController
   # GET /printers.json
 
   def index
-    # @printer = Printer.all
     @printers = Printer.all
-    @hoge = params[:search]
     @hash = Gmaps4rails.build_markers(@printers) do |printer,  marker|
       marker.lat printer.latitude
       marker.lng printer.longitude
       marker.infowindow printer.description
       marker.json({description: printer.description})
     end
+    #文字検索用
+    # @hoge = params[:search]
   end
 
   # GET /printers/1
   # GET /printers/1.json
   def show
-    # @printerfilamentlink = PrinterFilamentLink.new(printerfilamentlink_params)
-    # p = @printer
-    # @printerfilamentlink.printer_id = p.id
-    # @printerfilamentlink.filament_id = filament_id
+    # リレーションのロジック部分
+      # @printerfilamentlink = PrinterFilamentLink.new(printerfilamentlink_params)
+      # p = @printer
+      # @printerfilamentlink.printer_id = p.id
+      # @printerfilamentlink.filament_id = filament_id
 
-    # respond_to do |format|
-    #   if @printerfilamentlink.save
-    #     format.html { redirect_to @printer, notice: 'Printer was successfully created.' }
-    #     format.json { render :show, status: :created, location: @printerfilamentlink }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @printerfilamentlink.errors, status: :unprocessable_entity }
-    #   end
-    # end
-    @printer.filaments.build
-    @filament = Filament.all
+      # respond_to do |format|
+      #   if @printerfilamentlink.save
+      #     format.html { redirect_to @printer, notice: 'Printer was successfully created.' }
+      #     format.json { render :show, status: :created, location: @printerfilamentlink }
+      #   else
+      #     format.html { render :new }
+      #     format.json { render json: @printerfilamentlink.errors, status: :unprocessable_entity }
+      #   end
+      # end
+      # @printer.filaments.build
+      # @filament = Filament.all
   end
 
   # GET /printers/new
   def new
     @printer = Printer.new
+<<<<<<< HEAD
     @filament = Filament.all
     @printer.printer_filament_links.build
     @printer.filaments.build
+=======
+    # @filament = Filament.all
+    # @printer.printer_filament_links.build
+    # @printer.filaments.build
+
+>>>>>>> 60c5f2d469ceae05b9d792606179a5ec96639846
   end
 
   # GET /printers/1/edit
@@ -65,6 +73,7 @@ class PrintersController < ApplicationController
     #ここでlogicを走らせて、最終的に入力されたチェックボックスの値からfilament_idを決定する。
     #複数選択の場合も該当するfilament_id全てと新規PrinterのIDを中間テーブルにひもづけて保存すればよい。
 
+<<<<<<< HEAD
     @material_type = params[:material_type]
     @color_type = params[:color_type]
 
@@ -79,6 +88,17 @@ class PrintersController < ApplicationController
     end
     
     #filament_id = f.id
+=======
+    # @material_type = params[:material_type]
+    # @color_type = params[:color_type]
+    # f = Filament.where(["material = ? and color = ?", "PLA", "red"])
+    # if f.count != 0
+    #   f = f[0]
+    # else
+    #   f = Filament.new
+    #   f = f[0]
+    # end
+>>>>>>> 60c5f2d469ceae05b9d792606179a5ec96639846
     
 
     respond_to do |format|
@@ -143,8 +163,9 @@ class PrintersController < ApplicationController
         :address, :latitude, :longitude,:material, :color, :printer_filament_links_attributes => [:id, :printer_id, :filament_id],
         :printer_filaments_attributes => [:id, :material, :color])
     end
-    def printerfilamentlink_params
-      params.permit(:printer_id, :filament_id)
-    end
+    
+    # def printerfilamentlink_params
+    #   params.permit(:printer_id, :filament_id)
+    # end
   
 end
