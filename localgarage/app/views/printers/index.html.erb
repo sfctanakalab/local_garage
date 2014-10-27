@@ -2,7 +2,7 @@
     <div class="printer_list_left">
         <div id="map" style='height:100%;'>
         </div>
-        
+
         <script type="text/javascript">
             $( document ).ready(function() {
                 handler = Gmaps.build('Google');
@@ -17,7 +17,7 @@
     </div>
     <div class="printer_list_right">
         <div class="printer_list_container">
-            <div class="filter_wrapper">
+            <!--<div class="filter_wrapper">
                 <div class="filter_column">
                     <div class="new_printer">
                         <strong><%= link_to 'New Printer', new_printer_path, :class=>'new_printer_btn' %></strong>
@@ -46,6 +46,8 @@
                     </div>
                 </div> -->
             </div>
+                </div>
+            </div>-->
             <div class="printers">
                 <%= content_tag_for :tr, @printers do |printer| %>
                     <% if printer.user_id %>
@@ -115,7 +117,7 @@ body{
 }
 </style>
 
-  
+
 
 <script type="text/javascript">
       $(document).ready(function(){
