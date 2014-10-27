@@ -13,7 +13,7 @@
     </div>
     <div class="printer_list_right">
         <div class="printer_list_container">
-            <div class="filter_wrapper">
+            <!--<div class="filter_wrapper">
                 <div class="filter_column">
                     <div class="search_by_keyword">
                         <%= form_tag printers_path, :method => 'get' do %>
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <div class="printers">
                 <%= content_tag_for :tr, @printers do |printer| %>
                     <% if printer.user_id %>

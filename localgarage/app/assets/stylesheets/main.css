@@ -492,7 +492,7 @@ header li{
 /***** create printer *****/
 .create_printer_btn{
 	color: rgb(255,255,255);
-	margin-top: 20px;
+	margin-top: 60px;
 	padding: 10px;
 	border-radius: 2px;
 	background-color: rgb(43,173,222);
@@ -529,7 +529,7 @@ header li{
 }
 /***** decorate image upload button *****/
 #decorate_btn{
-	width: 170px;
+	width: 280px;
 	background-color: rgb(212,217,219);
 }
 #decorate_btn:hover{
@@ -540,6 +540,7 @@ header li{
 }
 #decorate_btn input{
 	opacity: 0;
+	cursor: pointer;
 }
 .decorate_label{
 	padding-top: 10px;

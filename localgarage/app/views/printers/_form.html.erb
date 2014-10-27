@@ -63,8 +63,13 @@
 function handleFileSelect(evt) {
     var files = evt.target.files;
     var output = [];
-    for (var i = 0, f; f = files[i]; i++) {
-      output.push('<strong>', unescape(f.name), '</strong>');
+    console.log(files);
+    if(files.length > 0){
+      for (var i = 0, f; f = files[i]; i++) {
+        output.push('<strong>', unescape(f.name), '</strong>');
+      }
+    }else{
+      output.push('ファイルを選択');
     }
     document.getElementById('list').innerHTML = output.join('');
 }
