@@ -50,13 +50,10 @@ gem 'twitter-bootswatch-rails-helpers'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'gmaps4rails'
-gem 'geocoder'
+gem "gmaps4rails"
+gem "geocoder"
 
-# websocket
-# gem 'websocket-rails'
-gem 'rack-cors', :require => 'rack/cors'
-
+gem "websocket-rails"
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 #database seed handling
