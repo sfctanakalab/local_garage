@@ -2,6 +2,48 @@
 body{
 	width: 100%;
 	height: 100%;
+	position: relative;
+	z-index: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-family: "Helvetica Neue",
+				 "Helvetica",
+				 "Hiragino Kaku Gothic Pro",
+				 "ヒラギノ角ゴ Pro W3",
+				 "メイリオ",
+				 "Meiryo",
+				 "ＭＳ Ｐゴシック",
+				 verdana,
+				 helvetica,
+				 Arial,
+				 sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: "Helvetica Neue",
+				 "Helvetica",
+				 "Hiragino Kaku Gothic Pro",
+				 "ヒラギノ角ゴ Pro W3",
+				 "メイリオ",
+				 "Meiryo",
+				 "ＭＳ Ｐゴシック",
+				 verdana,
+				 helvetica,
+				 Arial,
+				 sans-serif;
+  font-weight: 300;
+  line-height: 1.1;
+  color: inherit;
 }
 h1{
 	margin: 0px;
@@ -93,7 +135,7 @@ header li{
 /***** top image *****/
 .top_image{
 	width: 100%;
-	height: 400px;
+	height: 500px;
 	overflow: hidden;
 	position: relative;
 	z-index: -1;
@@ -105,13 +147,24 @@ header li{
 /***** find 3d printer *****/
 .find_3d_printer{
 	width: 100%;
-	background-color: rgba(80,80,80,0.5);
+	background-color: rgba(80,80,80,0.6);
 	text-align: center;
-	padding: 15px 0px 15px;
-	margin: -71px 0px 30px;
+	padding: 20px 0px 20px;
+	margin: -81px 0px 30px;
 }
 .find_3d_printer a{
 	color: #fff;
+	font-weight: 600;
+	padding: 10px 15px;
+	border-radius: 2px;
+	text-decoration: none;
+	background-color: rgb(245,85,70);
+}
+.find_3d_printer a:hover{
+	background-color: rgb(235,75,60);
+}
+.find_3d_printer a:active{
+	background-color: rgb(225,65,50);
 }
 /***** custom container *****/
 .custom_container{
@@ -119,12 +172,29 @@ header li{
 }
 /***** about *****/
 .about{
-	padding: 20px 0px 20px;
+	padding: 20px 40px 20px;
+	text-align: center;
+}
+.about ul{
+	display: table;
+	width: 100%;
+}
+.about li{
+	display: table-cell;
+	width: 50%;
+}
+.about li p{
+	padding: 10px;
 }
 /***** how to use *****/
 .how_to_use .title{
 	text-align: center;
 	padding-bottom: 20px;
+}
+.how_to_use .title h2{
+	font-weight: 400;
+	margin: 55px 0px 10px;
+	font-size: 35px;
 }
 .how_to_use .content ul{
 	list-style: none;
@@ -137,6 +207,8 @@ header li{
 }
 .how_to_use .content li .li_inside{
 	margin: 15px;
+}
+.how_to_use .content li .li_inside h3{
 }
 .how_to_use .content li .li_inside .how_to_use_img{
 	width: 70%;
@@ -219,6 +291,9 @@ header li{
 .printer_info h4{
 	margin-top: 0px;
 	padding-top: 5px;
+}
+.printer_info p{
+	margin-bottom: 3px;
 }
 /***** search printer *****/
 .filter_wrapper{
@@ -310,10 +385,17 @@ header li{
 	-o-transition-duration:0.3s;
 	-ms-transition-duration:0.3s;
 }
+.header_custom_container .custom_navigator .new_printer a{
+	color: #fff;
+	border-radius: 2px;
+}
 .new_printer_btn:hover{
 	color: #fff;
 	text-decoration: none;
 	background-color: rgb(53,183,232);
+}
+.new_printer_wrapper{
+	width: 120px;
 }
 /***** printer details *****/
 .printer_info_title h1{
@@ -483,7 +565,7 @@ header li{
 /***** create printer *****/
 .create_printer_btn{
 	color: rgb(255,255,255);
-	margin-top: 20px;
+	margin-top: 60px;
 	padding: 10px;
 	border-radius: 2px;
 	background-color: rgb(43,173,222);
@@ -520,10 +602,18 @@ header li{
 }
 /***** decorate image upload button *****/
 #decorate_btn{
+	width: 280px;
 	background-color: rgb(212,217,219);
+}
+#decorate_btn:hover{
+	background-color: rgb(202,207,209);
+}
+#decorate_btn:active{
+	background-color: rgb(192,197,199);
 }
 #decorate_btn input{
 	opacity: 0;
+	cursor: pointer;
 }
 .decorate_label{
 	padding-top: 10px;
@@ -597,7 +687,7 @@ header li{
 	position: absolute;
 	display: none;
 	right: 0;
-	margin: 0px 25px 0px 0px;
+	margin: 0px 145px 0px 0px;
 	background-color: #fff;
 	border: solid 1px rgb(212,217,219);
 	text-align: left;
@@ -617,4 +707,102 @@ header li{
 #current_user{
 	cursor: pointer;
 	padding: 10px 0px;
+}
+/***** let's print *****/
+#lets_print{
+	position: absolute;
+	z-index: 10;
+	top: 0;
+	width: 100%;
+	text-align: center;
+	color: #fff;
+}
+#lets_print h1{
+	margin-top: 130px;
+	font-weight: 700;
+	font-size: 70px;
+	letter-spacing: 3px;
+}
+#lets_print h4{
+	font-weight: 500;
+	font-size: 20px;
+}
+#lets_print h5{
+	font-size: 18px;
+	background-color: rgba(240,240,240,0.4);
+	width: 140px;
+	margin: 35px auto 0px;
+	padding: 10px;
+	border-radius: 4px;
+	z-index: 100;
+	cursor: pointer;
+}
+#lets_print h5:hover{
+	background-color: rgba(80,80,80,0.4);
+}
+/***** mask *****/
+.mask{
+	width: 100%;
+	height: 500px;
+	background-color: rgba(20,20,20,0.1);
+	position: absolute;
+}
+/***** select filament *****/
+.select_filament select{
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	border-radius: 0;
+	border: 0;
+	margin: 0;
+	padding: 5px 15px;
+	background: none transparent;
+	vertical-align: middle;
+	font-size: inherit;
+	color: inherit;
+	box-sizing: content-box;
+	background-color: rgb(255,255,255);
+	border: solid 1px rgb(212,217,219);
+	border-radius: 4px;
+	cursor: pointer;
+	outline: none;
+	width: 200px;
+}
+.select_filament:after{
+	font-size: 8px;
+	margin-left: -20px;
+	content: "▼";
+}
+.select_filament select::-ms-expand {
+  display: none;
+}
+/***** select color *****/
+.select_color select{
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	border-radius: 0;
+	border: 0;
+	margin: 0;
+	padding: 5px 15px;
+	background: none transparent;
+	vertical-align: middle;
+	font-size: inherit;
+	color: inherit;
+	box-sizing: content-box;
+	background-color: rgb(255,255,255);
+	border: solid 1px rgb(212,217,219);
+	letter-spacing: 1px;
+	border-radius: 4px;
+	cursor: pointer;
+	outline: none;
+	width: 200px;
+}
+.select_color:after{
+	font-size: 8px;
+	margin-left: -20px;
+	content: "▼";
+}
+.select_color select::-ms-expand {
+  display: none;
 }

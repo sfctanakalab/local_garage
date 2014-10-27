@@ -2,24 +2,28 @@
     <div class="printer_list_left">
         <div id="map" style='height:100%;'>
         </div>
+
         <script type="text/javascript">
-            handler = Gmaps.build('Google');
-            handler.buildMap({ provider: {},  internal: {id: 'map'}},  function(){
-                markers = handler.addMarkers(<%=raw @hash.to_json %>);
-                handler.bounds.extendWith(markers);
-                handler.fitMapToBounds();
+            $( document ).ready(function() {
+                handler = Gmaps.build('Google');
+                handler.buildMap({ provider: {},  internal: {id: 'map'}},  function(){
+                    //window.alert("test");
+                    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+                    handler.bounds.extendWith(markers);
+                    handler.fitMapToBounds();
+                });
             });
         </script>
     </div>
     <div class="printer_list_right">
         <div class="printer_list_container">
-            <div class="filter_wrapper">
+            <!--<div class="filter_wrapper">
                 <div class="filter_column">
                     <div class="new_printer">
                         <strong><%= link_to 'New Printer', new_printer_path, :class=>'new_printer_btn' %></strong>
                     </div>
                 </div>
-                <div class="filter_column">
+                <!-- <div class="filter_column">
                     <div class="search_by_keyword">
                         <%= form_tag printers_path, :method => 'get' do %>
                             <span>素材を検索する</span>
@@ -40,8 +44,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div> -->
+            
             <div class="printers">
                 <%= content_tag_for :tr, @printers do |printer| %>
                     <% if printer.user_id %>
@@ -55,11 +59,12 @@
                                         </div>
                                         <div class="printer_info">
                                             <h4><%= link_to printer.machinemodel, printer %></h4>
+                                            <p>located at <%= printer.description %></p>
                                             <!--<%= printer.resolution %><br>-->
                                             <% if current_user %>
                                                 <% if printer.user_id == current_user.id %>
-                                                    <%= link_to '編集',  edit_printer_path(printer) %> |
-                                                    <%= link_to '削除',  printer,  method: :delete,  data: { confirm: 'Are you sure?' } %>
+                                                    <small><%= link_to '編集',  edit_printer_path(printer) %></small> |
+                                                    <small><%= link_to '削除',  printer,  method: :delete,  data: { confirm: 'Are you sure?' } %></small>
                                                 <% end %>
                                             <% end %>
                                         </div>
@@ -110,7 +115,7 @@ body{
 }
 </style>
 
-  
+
 
 <script type="text/javascript">
       $(document).ready(function(){

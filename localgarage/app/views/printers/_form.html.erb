@@ -12,45 +12,100 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <!--<div class="field">
     <%= f.fields_for :printer_filament_links do |pfl| %>
       <%= pfl.label '素材' %><br>
       <%= pfl.collection_select :filament_id, @filament, :id, :material %>
     <% end %>
+  </div>-->
+
+  <!-- <table>
+    <tr>
+      <td>
+        <%= check_box_tag "material_type[]", "ABS" %>ABS
+      </td>
+      <td>
+        <%= check_box_tag "material_type[]", "PLA" %>PLA
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= check_box_tag "color_type[]", "red" %>red
+      </td>
+      <td>
+        <%= check_box_tag "color_type[]", "blue" %>blue
+      </td>
+      <td>
+        <%= check_box_tag "color_type[]", "yellow" %>yellow
+      </td>
+      <td>
+        <%= check_box_tag "color_type[]", "green" %>green
+      </td>
+      <td>
+        <%= check_box_tag "color_type[]", "black" %>black
+      </td>
+      <td>
+        <%= check_box_tag "color_type[]", "white" %>white
+      </td>
+      <td>
+        <%= check_box_tag "color_type[]", "orange" %>orange
+      </td>
+      <td>
+        <%= check_box_tag "color_type[]", "transparent" %>transparent
+      </td>
+    </tr>
+  </table> -->
+
+  <div class="form-group">
+    <%= f.label :image, :class => 'control-label' %>
+    <div id="decorate_btn">
+      <div class="decorate_label" id="list">ファイルを選択</div>
+      <%= f.file_field :image, accept: "image/*", :class => 'form-control', :id=>'files' %>
+    </div>
   </div>
-
-  
-
   <div class="form-group">
     <%= f.label :location_name, :class => 'control-label' %>
     <%= f.text_field :description, :class => 'form-control' %>
-  </div> 
+  </div>
   <div class="form-group">
     <%= f.label :address, :class => 'control-label' %>
     <%= f.text_field :address, :class => 'form-control' %>
   </div>
   
   <div class="form-group">
+    <%= f.label :latitude, :class => 'control-label' %>
+    <%= f.text_field :latitude, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :longitude, :class => 'control-label' %>
+    <%= f.text_field :longitude, :class => 'form-control' %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :machine_name, :class => 'control-label' %>
     <%= f.text_field :machinemodel, :class => 'form-control' %>
-  </div> 
-  
+  </div>
+
   <div class="form-group">
     <%= f.label :resolution, :class => 'control-label' %>
     <%= f.text_field :resolution, :class => 'form-control' %>
   </div>
-
-  <div class="form-group">
-    <%= f.label :image, :class => 'control-label' %>
-    <div id="">
-      <!--<div class="decorate_label">ファイルを選択</div>-->
-      <%= f.file_field :image, accept: "image/*", :class => 'form-control' %>
-    </div>
+  <div class="form-group select_filament">
+    <%= f.label :material, :class => 'control-label' %><!-- 
+    <%= f.text_field :material, :class => 'form-control' %> -->
+    <%= f.select(:material, options_for_select(["PLA","ABS"],["PLA","ABS"])) %>
   </div>
-  <div class="form-group">
+  
+  <div class="form-group select_color">
+    <%= f.label :material_color, :class => 'control-label' %><!-- 
+    <%= f.text_field :color, :class => 'form-control' %> -->
+    <%= f.select(:color, options_for_select(["red","blue","yellow","orange","white","black","green","transparent"],["red","blue","yellow","orange","white","black","green","transparent"])) %>
+  </div>
+
+  <!-- <div class="form-group">
     <%= f.label :condition, :class => 'control-label' %>
     <%= f.check_box :condition, :class => 'form-control' %>
-  </div>
+  </div> -->
 
   <div class="form-group">
     <label class="control-label"></label>
@@ -58,3 +113,20 @@
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")), printers_path, :class => 'cancel_btn, cancel_create_printer', 'data-no-turbolink' => true %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+function handleFileSelect(evt) {
+    var files = evt.target.files;
+    var output = [];
+    console.log(files);
+    if(files.length > 0){
+      for (var i = 0, f; f = files[i]; i++) {
+        output.push('<strong>', unescape(f.name), '</strong>');
+      }
+    }else{
+      output.push('ファイルを選択');
+    }
+    document.getElementById('list').innerHTML = output.join('');
+}
+document.getElementById('files').addEventListener('change', handleFileSelect, false);
+</script>

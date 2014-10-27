@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141024165154) do
+ActiveRecord::Schema.define(version: 20141027165108) do
 
   create_table "data", force: true do |t|
     t.string   "stl_url"
@@ -38,6 +38,10 @@ ActiveRecord::Schema.define(version: 20141024165154) do
     t.float    "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "options", force: true do |t|
+    t.boolean "is_checked", default: true, null: false
   end
 
   create_table "printer_filament_links", force: true do |t|
@@ -70,6 +74,8 @@ ActiveRecord::Schema.define(version: 20141024165154) do
     t.float    "longitude"
     t.string   "title"
     t.binary   "image"
+    t.string   "material"
+    t.string   "color"
   end
 
   create_table "printers_filaments", force: true do |t|
