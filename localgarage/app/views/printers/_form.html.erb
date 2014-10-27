@@ -12,12 +12,12 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <!--<div class="field">
     <%= f.fields_for :printer_filament_links do |pfl| %>
       <%= pfl.label '素材' %><br>
       <%= pfl.collection_select :filament_id, @filament, :id, :material %>
     <% end %>
-  </div>
+  </div>-->
 
   
 
@@ -42,15 +42,15 @@
 
   <div class="form-group">
     <%= f.label :image, :class => 'control-label' %>
-    <div id="">
-      <!--<div class="decorate_label">ファイルを選択</div>-->
-      <%= f.file_field :image, accept: "image/*", :class => 'form-control' %>
+    <div id="decorate_btn">
+      <div class="decorate_label" id="list">ファイルを選択</div>
+      <%= f.file_field :image, accept: "image/*", :class => 'form-control', :id=>'files' %>
     </div>
   </div>
-  <div class="form-group">
+  <!--<div class="form-group">
     <%= f.label :condition, :class => 'control-label' %>
     <%= f.check_box :condition, :class => 'form-control' %>
-  </div>
+  </div>-->
 
   <div class="form-group">
     <label class="control-label"></label>
@@ -58,3 +58,15 @@
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")), printers_path, :class => 'cancel_btn, cancel_create_printer' %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+function handleFileSelect(evt) {
+    var files = evt.target.files;
+    var output = [];
+    for (var i = 0, f; f = files[i]; i++) {
+      output.push('<strong>', unescape(f.name), '</strong>');
+    }
+    document.getElementById('list').innerHTML = output.join('');
+}
+document.getElementById('files').addEventListener('change', handleFileSelect, false);
+</script>

@@ -15,11 +15,6 @@
         <div class="printer_list_container">
             <div class="filter_wrapper">
                 <div class="filter_column">
-                    <div class="new_printer">
-                        <strong><%= link_to 'New Printer', new_printer_path, :class=>'new_printer_btn' %></strong>
-                    </div>
-                </div>
-                <div class="filter_column">
                     <div class="search_by_keyword">
                         <%= form_tag printers_path,  :method => 'get' do %>
                             <span>素材を検索する</span>
@@ -55,7 +50,7 @@
                                         </div>
                                         <div class="printer_info">
                                             <h4><%= link_to printer.machinemodel, printer %></h4>
-                                            <p>located at <%= printer.location %>location</p>
+                                            <p>located at <%= printer.location %></p>
                                             <!--<%= printer.resolution %><br>-->
                                             <% if current_user %>
                                                 <% if printer.user_id == current_user.id %>
