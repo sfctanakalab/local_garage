@@ -19,7 +19,7 @@
                 $('#messages').append($('<li class="printer_status">').text(msg));
             }
         });
-        channel.bind('command_sent', function(msg) {
+        channel.bind('sent_command', function(msg) {
             if (msg instanceof Array) {
                 if (msg.length > 0) {
                     for (key in msg) {
