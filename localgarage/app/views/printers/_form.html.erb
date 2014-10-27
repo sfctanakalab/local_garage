@@ -81,13 +81,13 @@
     <%= f.label :resolution, :class => 'control-label' %>
     <%= f.text_field :resolution, :class => 'form-control' %>
   </div>
-  <div class="form-group">
+  <div class="form-group select_filament">
     <%= f.label :material, :class => 'control-label' %><!-- 
     <%= f.text_field :material, :class => 'form-control' %> -->
     <%= f.select(:material, options_for_select(["PLA","ABS"],["PLA","ABS"])) %>
   </div>
   
-  <div class="form-group">
+  <div class="form-group select_color">
     <%= f.label :material_color, :class => 'control-label' %><!-- 
     <%= f.text_field :color, :class => 'form-control' %> -->
     <%= f.select(:color, options_for_select(["red","blue","yellow","orange","white","black","green","transparent"],["red","blue","yellow","orange","white","black","green","transparent"])) %>

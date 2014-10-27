@@ -724,3 +724,62 @@ header li{
 	background-color: rgba(20,20,20,0.1);
 	position: absolute;
 }
+/***** select filament *****/
+.select_filament select{
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	border-radius: 0;
+	border: 0;
+	margin: 0;
+	padding: 5px 15px;
+	background: none transparent;
+	vertical-align: middle;
+	font-size: inherit;
+	color: inherit;
+	box-sizing: content-box;
+	background-color: rgb(255,255,255);
+	border: solid 1px rgb(212,217,219);
+	border-radius: 4px;
+	cursor: pointer;
+	outline: none;
+	width: 200px;
+}
+.select_filament:after{
+	font-size: 8px;
+	margin-left: -20px;
+	content: "▼";
+}
+.select_filament select::-ms-expand {
+  display: none;
+}
+/***** select color *****/
+.select_color select{
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	border-radius: 0;
+	border: 0;
+	margin: 0;
+	padding: 5px 15px;
+	background: none transparent;
+	vertical-align: middle;
+	font-size: inherit;
+	color: inherit;
+	box-sizing: content-box;
+	background-color: rgb(255,255,255);
+	border: solid 1px rgb(212,217,219);
+	letter-spacing: 1px;
+	border-radius: 4px;
+	cursor: pointer;
+	outline: none;
+	width: 200px;
+}
+.select_color:after{
+	font-size: 8px;
+	margin-left: -20px;
+	content: "▼";
+}
+.select_color select::-ms-expand {
+  display: none;
+}
