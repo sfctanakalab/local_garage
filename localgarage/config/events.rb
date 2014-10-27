@@ -12,10 +12,22 @@ WebsocketRails::EventMap.describe do
   #   end
   # The above will handle an event triggered on the client like `product.new`.
 
-  namespace :printer_to_user do
-      subscribe :status_update, to: RemoteControlController, with_method: :recieve_status
+  namespace :lg_to_user do
+  # forwarding octo status to user
+  # all done inside the server
   end
-  namespace :user_to_printer do
-      subscribe :user_command, to: RemoteControlController, with_method: :send_command
+
+  namespace :lg_to_octo do
+  # forwarding user request to octo
+  # all done inside the server
+  # 
+  end
+
+  namespace :user_to_lg do
+      subscribe :user_command, to: RemoteControlController, with_method: :load_command
+  end
+
+  namespace :octo_to_lg do
+      subscribe :printer_status, to: RemoteControlController, with_method: :load_status
   end
 end
