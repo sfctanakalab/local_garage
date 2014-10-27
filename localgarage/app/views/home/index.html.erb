@@ -1,21 +1,24 @@
 
 <div class="top_image">
+	<div class="mask"></div>
 	<video poster="http://web.sfc.keio.ac.jp/~t13954tm/movie/sample.JPG" autoplay loop muted>
 		<source src="http://web.sfc.keio.ac.jp/~t13954tm/movie/sample.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
   	</video>
   	<div id="lets_print"><h1>Let's print !</h1></div>
 </div>
 <div class="find_3d_printer">
-    <h4><%= link_to "プリンターを探す",  printers_path, 'data-no-turbolink' => true %></h4>
+    <h4><%= link_to "Browse Printers",  printers_path, 'data-no-turbolink' => true %></h4>
 </div>
 <div class="custom_container">
 	<div class="about">
-		<p>Our service wants to help you to realize your idea in very early stage. Please do not hesitate or give up to fabricate anymore. If you come up with some idea, you just find a 3D printer and send a 3D data through our service and operate a 3D printer directly to fabricate your idea.</p>
-		<p>(You don't need to buy a 3D printer or go to Fab Space or to order to a merchant anymore. we want to help your fabrication in early stage.)</p>
+		<ul>
+			<li><p>Our service wants to help you to realize your idea in very early stage. Please do not hesitate or give up to fabricate anymore. If you come up with some idea, you just find a 3D printer and send a 3D data through our service and operate a 3D printer directly to fabricate your idea.</p></li>
+			<li><p>You don't need to buy a 3D printer or go to Fab Space or to order to a merchant anymore. we want to help your fabrication in early stage.</p></li>
+		</ul>
 	</div>
 	<div class="how_to_use">
 		<div class="title">
-			<h2>ローカルガレージの使い方</h2>
+			<h2>How to 3D Print</h2>
 		</div>
 		<div class="content">
 			<ul>
@@ -50,7 +53,7 @@
             <h2>local garage</h2>
         </li>
         <li>
-            <h4>企業情報</h4>
+            <h4>Company</h4>
             <dl>
                 <dd>About</dd>
                 <dd>Jobs</dd>
@@ -59,7 +62,7 @@
             </dl>
         </li>
         <li>
-            <h4>Local Garage おすすめ</h4>
+            <h4>Local Garage</h4>
             <dl>
                 <dd>About</dd>
                 <dd>Jobs</dd>
@@ -88,7 +91,6 @@ function changeHeaderColor() {
 	}
 	document.getElementById('header_wrapper').style.backgroundColor = "rgba(0,0,0,0)";
 	document.getElementById('header_wrapper').style.border = "none";
-	document.getElementById('site').style.fontSize = "38px";
 	document.getElementById('navlink').style.color = "#000";
 	//document.getElementById('new_printer_id').style.display = "none";
 }

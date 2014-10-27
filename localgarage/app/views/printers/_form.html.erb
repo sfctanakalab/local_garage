@@ -56,8 +56,13 @@
     </tr>
   </table> -->
 
-
-
+  <div class="form-group">
+    <%= f.label :image, :class => 'control-label' %>
+    <div id="decorate_btn">
+      <div class="decorate_label" id="list">ファイルを選択</div>
+      <%= f.file_field :image, accept: "image/*", :class => 'form-control', :id=>'files' %>
+    </div>
+  </div>
   <div class="form-group">
     <%= f.label :location_name, :class => 'control-label' %>
     <%= f.text_field :description, :class => 'form-control' %>
@@ -75,14 +80,6 @@
   <div class="form-group">
     <%= f.label :resolution, :class => 'control-label' %>
     <%= f.text_field :resolution, :class => 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :image, :class => 'control-label' %>
-    <div id="decorate_btn">
-      <div class="decorate_label" id="list">ファイルを選択</div>
-      <%= f.file_field :image, accept: "image/*", :class => 'form-control', :id=>'files' %>
-    </div>
   </div>
   <div class="form-group">
     <%= f.label :material, :class => 'control-label' %>
