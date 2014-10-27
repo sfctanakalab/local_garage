@@ -2,12 +2,18 @@
     <div class="printer_list_left">
         <div id="map" style='height:100%;'>
         </div>
+        
         <script type="text/javascript">
-            handler = Gmaps.build('Google');
-            handler.buildMap({ provider: {},  internal: {id: 'map'}},  function(){
-                markers = handler.addMarkers(<%=raw @hash.to_json %>);
-                handler.bounds.extendWith(markers);
-                handler.fitMapToBounds();
+            $( document ).ready(function() {
+                
+                handler = Gmaps.build('Google');
+                window.alert("test");
+                handler.buildMap({ provider: {},  internal: {id: 'map'}},  function(){
+                    //window.alert("test");
+                    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+                    handler.bounds.extendWith(markers);
+                    handler.fitMapToBounds();
+                });
             });
         </script>
     </div>
@@ -19,7 +25,7 @@
                         <strong><%= link_to 'New Printer', new_printer_path, :class=>'new_printer_btn' %></strong>
                     </div>
                 </div>
-                <div class="filter_column">
+                <!-- <div class="filter_column">
                     <div class="search_by_keyword">
                         <%= form_tag printers_path,  :method => 'get' do %>
                             <span>素材を検索する</span>
@@ -40,8 +46,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
+            <%= debug @hash.to_json %>
             <div class="printers">
                 <%= content_tag_for :tr, @printers do |printer| %>
                     <% if printer.user_id %>
