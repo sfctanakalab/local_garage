@@ -43,7 +43,6 @@ class PrintersController < ApplicationController
     @filament = Filament.all
     @printer.printer_filament_links.build
     @printer.filaments.build
-
   end
 
   # GET /printers/1/edit
@@ -79,7 +78,7 @@ class PrintersController < ApplicationController
       f = f[0]
     end
     
-    filament_id = f.id
+    #filament_id = f.id
     
 
     respond_to do |format|
@@ -125,6 +124,10 @@ class PrintersController < ApplicationController
     send_data(@printer.image, disposition: :inline)
   end
   
+  def mail_send
+    @mail = NoticeMailer.notify_mail.deliver
+    render :text => 'send finish'
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
