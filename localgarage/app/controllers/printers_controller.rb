@@ -12,7 +12,7 @@ class PrintersController < ApplicationController
       marker.lat printer.latitude
       marker.lng printer.longitude
       marker.infowindow printer.description
-      marker.json({title: printer.title})
+      marker.json({description: printer.description})
     end
   end
 
