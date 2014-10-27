@@ -55,7 +55,7 @@
   <div class="form-group">
     <label class="control-label"></label>
     <%= f.submit nil, :class => 'create_printer_btn' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), printers_path, :class => 'cancel_btn, cancel_create_printer' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), printers_path, :class => 'cancel_btn, cancel_create_printer', 'data-no-turbolink' => true %>
   </div>
 <% end %>
 

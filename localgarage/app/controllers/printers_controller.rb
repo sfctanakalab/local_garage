@@ -5,10 +5,10 @@ class PrintersController < ApplicationController
   # GET /printers.json
 
   def index
-    @printer = Printer.all
+    # @printer = Printer.all
     @printers = Printer.all
     @hoge = params[:search]
-    @hash = Gmaps4rails.build_markers(@printer) do |printer,  marker|
+    @hash = Gmaps4rails.build_markers(@printers) do |printer,  marker|
       marker.lat printer.latitude
       marker.lng printer.longitude
       marker.infowindow printer.description

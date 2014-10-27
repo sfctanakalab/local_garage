@@ -16,7 +16,7 @@
             <div class="filter_wrapper">
                 <div class="filter_column">
                     <div class="search_by_keyword">
-                        <%= form_tag printers_path,  :method => 'get' do %>
+                        <%= form_tag printers_path, :method => 'get' do %>
                             <span>素材を検索する</span>
                             <%= text_field_tag :search, params[:search], :class=>'input_text' %>
                             <%= submit_tag "Search", :material => nil, :class=>'search_btn' %>
