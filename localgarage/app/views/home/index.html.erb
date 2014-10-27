@@ -3,19 +3,19 @@
 	<video poster="http://web.sfc.keio.ac.jp/~t13954tm/movie/sample.JPG" autoplay loop muted>
 		<source src="http://web.sfc.keio.ac.jp/~t13954tm/movie/sample.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
   	</video>
-  	<div id="lets_print"><h1>Let's print !</h1></div>
+  	<div id="lets_print"><h1>Fabricate your idea</h1></div>
 </div>
 <div class="find_3d_printer">
-    <h4><%= link_to "プリンターを探す",  printers_path, 'data-no-turbolink' => true %></h4>
+    <h4><%= link_to "Find Your Printer",  printers_path, 'data-no-turbolink' => true %></h4>
 </div>
 <div class="custom_container">
 	<div class="about">
-		<p>Our service wants to help you to realize your idea in very early stage. Please do not hesitate or give up to fabricate anymore. If you come up with some idea, you just find a 3D printer and send a 3D data through our service and operate a 3D printer directly to fabricate your idea.</p>
-		<p>(You don't need to buy a 3D printer or go to Fab Space or to order to a merchant anymore. we want to help your fabrication in early stage.)</p>
+		<h4>Our service wants to help you to realize your idea in very early stage. <br>
+			If you come up with some idea, you just find the best 3D printer and operate it directly to fabricate your idea.</h4>
 	</div>
 	<div class="how_to_use">
 		<div class="title">
-			<h2>ローカルガレージの使い方</h2>
+			<h2>HOW TO USE LOCAL GARAGE</h2>
 		</div>
 		<div class="content">
 			<ul>
@@ -23,21 +23,28 @@
 					<div class="li_inside">
 						<h3>1. Find your 3D printer</h3>
 						<div class="how_to_use_img" name="how_to_use_img"><%= image_tag('sample.JPG', :name=>"how_to_use_img") %></div>
-						<p>At first, please search your 3D printer located around you. Many types of 3D printers has been registered.</p>
+						<p>At first, please search your 3D printer located around you. Many types of 3D printers has been registered.
+						<br>
+						Details -> Our service wants to help you to realize your idea in early stage. To fabricate your idea, we provide options of material property, colour, printer resolution. You can search the best 3D printer to fabricate your idea.</p>
 					</div>
 				</li>
 				<li name="how_to_use_content_li">
 					<div class="li_inside">
 						<h3>2. Fabricate</h3>
 						<div class="how_to_use_img" name="how_to_use_img"><%= image_tag('sample.JPG', :name=>"how_to_use_img") %></div>
-						<p>Secondly, please post your 3D data through our service. Our service will select the best slicer and CAM software related to your printer automatically, so you just post your 3D data and finish your work almost!! Our service support XXX.file format for now.</p>
+						<p>Secondly, please post your 3D data through our service. Our service will select the best slicer and CAM software related to your printer automatically, so you just post your 3D data and finish your work almost!! Our service support XXX.file format for now.
+						<br>
+						Details -> Our service doesn't support the optimisation of 3D data for now. If you are a beginner of 3D CAD, we suggest you should come into our 3D CAD community. In this community, we can share how to make 3D data with free software and how to find 3D data etc. </p>
 					</div>
 				</li>
 				<li name="how_to_use_content_li">
 					<div class="li_inside">
 						<h3>3. Deliver or Pick up</h3>
 						<div class="how_to_use_img" name="how_to_use_img"><%= image_tag('sample.JPG', :name=>"how_to_use_img") %></div>
-						<p>Lastly, just print it out !! You can monitor printing process on our service. We will give completion notice of printing to your email address. After printing out, you just drop in the printer location to pick up your product.</p>
+						<p>Lastly, just print it out !! You can monitor printing process on our service. We will give completion notice of printing to your email address. After printing out, you just drop in the printer location to pick up your product.
+						<br>
+
+						</p>
 					</div>
 				</li>
 			</ul>
