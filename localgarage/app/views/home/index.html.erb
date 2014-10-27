@@ -5,7 +5,7 @@
   	</video>
 </div>
 <div class="find_3d_printer">
-	<h4><%= link_to "プリンターを探す",  printers_path %></h4>
+    <h4><%= link_to "プリンターを探す",  printers_path, 'data-no-turbolink' => true %></h4>
 </div>
 <div class="custom_container">
 	<div class="about">
@@ -44,24 +44,39 @@
 	</div>
 </div>
 <div class="footer">
-	<ul class="footer_links">
-		<li>
-			<h2>local garage</h2>
-		</li>
-		<li>
-			<h4>企業情報</h4>
-		</li>
-		<li>
-			<h4>Local Garage おすすめ</h4>
-		</li>
-	</ul>
-	<div class="social_link">
-		<ul>
-			<li>facebook</li>
-			<li>twitter</li>
-			<li>google</li>
-		</ul>
-	</div>
+    <ul class="footer_links">
+        <li>
+            <h2>local garage</h2>
+        </li>
+        <li>
+            <h4>企業情報</h4>
+            <dl>
+                <dd>About</dd>
+                <dd>Jobs</dd>
+                <dd>Blog</dd>
+                <dd>Help</dd>
+            </dl>
+        </li>
+        <li>
+            <h4>Local Garage おすすめ</h4>
+            <dl>
+                <dd>About</dd>
+                <dd>Jobs</dd>
+                <dd>Blog</dd>
+                <dd>Help</dd>
+            </dl>
+        </li>
+    </ul>
+    <div class="social_link">
+        <ul>
+            <li>facebook</li>
+            <li>twitter</li>
+            <li>google</li>
+        </ul>
+    </div>
+    <div class="copyright">
+        <small>© Local Garage</small>
+    </div>
 </div>
 <!-- <img src="/images/indexbg.jpg", width=100% /> -->
 <script type="text/javascript">
@@ -75,4 +90,13 @@ function changeHeaderColor() {
 	document.getElementById('site').style.fontSize = "38px";
 }
 changeHeaderColor();
+
+//window.onscroll = function () {
+//    var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+//    if(scrollY >= 400) {
+//    	document.getElementById('header_wrapper').style.backgroundColor = "rgba(10,10,10,0.5)";
+//    }else{
+//    	document.getElementById('header_wrapper').style.backgroundColor = "rgba(0,0,0,0)";
+//    }
+//}
 </script>

@@ -7,3 +7,4 @@ $ ->
         $('tr.printer').hide()
         ids = (printers.map (p) -> "#printer_#{p.id}").join(', ')
         $(ids).show()
+

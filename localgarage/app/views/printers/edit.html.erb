@@ -1,8 +1,46 @@
 <%- model_class = Printer -%>
-<div class="custom_container margin_top_100">
-	<div class="page-header">
-	  <h1><%=t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human,
-	                                   :default => "Edit #{model_class.model_name.human}") %></h1>
+<div class="margin_top_100">
+	<div class="page_header">
+		<div class="new_printer_title">
+		 	<h1><%=t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human, :default => "Edit #{model_class.model_name.human}") %></h1>
+		</div>
 	</div>
+</div>
+<div class="custom_container new_printer_content">
 	<%= render :partial => 'form' %>
+</div>
+<div class="footer">
+    <ul class="footer_links">
+        <li>
+            <h2>local garage</h2>
+        </li>
+        <li>
+            <h4>企業情報</h4>
+            <dl>
+                <dd>About</dd>
+                <dd>Jobs</dd>
+                <dd>Blog</dd>
+                <dd>Help</dd>
+            </dl>
+        </li>
+        <li>
+            <h4>Local Garage おすすめ</h4>
+            <dl>
+                <dd>About</dd>
+                <dd>Jobs</dd>
+                <dd>Blog</dd>
+                <dd>Help</dd>
+            </dl>
+        </li>
+    </ul>
+    <div class="social_link">
+        <ul>
+            <li>facebook</li>
+            <li>twitter</li>
+            <li>google</li>
+        </ul>
+    </div>
+    <div class="copyright">
+        <small>© Local Garage</small>
+    </div>
 </div>

@@ -14,7 +14,7 @@
 
   
 
-  <table>
+  <!-- <table>
     <tr>
       <td>
         <%= check_box_tag "material_type[]", "ABS" %>ABS
@@ -49,7 +49,7 @@
         <%= check_box_tag "color_type[]", "transparent" %>transparent
       </td>
     </tr>
-  </table>
+  </table> -->
   
   
 
@@ -74,7 +74,10 @@
 
   <div class="form-group">
     <%= f.label :image, :class => 'control-label' %>
-    <%= f.file_field :image, accept: "image/*", :class => 'form-control' %>
+    <div id="">
+      <!--<div class="decorate_label">ファイルを選択</div>-->
+      <%= f.file_field :image, accept: "image/*", :class => 'form-control' %>
+    </div>
   </div>
   <div class="form-group">
     <%= f.label :condition, :class => 'control-label' %>
@@ -84,7 +87,6 @@
   <div class="form-group">
     <label class="control-label"></label>
     <%= f.submit nil, :class => 'create_printer_btn' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                printers_path, :class => 'btn' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), printers_path, :class => 'cancel_btn, cancel_create_printer', 'data-no-turbolink' => true %>
   </div>
 <% end %>

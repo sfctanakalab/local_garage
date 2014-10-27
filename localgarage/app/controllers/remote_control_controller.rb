@@ -1,11 +1,17 @@
 class RemoteControlController < WebsocketRails::BaseController
   # before_action :authenticate_user!
 
-  def status_recieve
-    recieve_status = message()
-    WebsocketRails[:printer_status].trigger(:printer_stat, recieve_status)
-    response = recieve_status + " => OK"
-    send_message(:user_command, response)
+  # status_to_user => status_update
+  def recieve_status
+    res = message()
+
+    WebsocketRails[:ps].trigger(:status_update, res)
+  end
+
+  # user_command => command_to_printer
+  def send_command
+    res = message()
+    send_message(:command_to_printer, response)
   end
 
   # def send_stl

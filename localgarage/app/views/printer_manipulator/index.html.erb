@@ -1,11 +1,33 @@
 <script type="text/javascript">
-    var dispatcher = new WebSocketRails('localhost:3000/websocket');
+    var dispatcher = new WebSocketRails('localhost:4000/websocket');
 
-    var channel = dispatcher.subscribe('printer_status');
+    var channel = dispatcher.subscribe('ps');
 
-    channel.bind('printer_stat', function(data) {
-            console.log('channel event received: ' + data);
+    // => status_update
+    channel.bind('status_update', function(data) {
+        console.log('channel event received: ' + data);
+        if (msg instanceof Array) {
+            if (msg.length > 0) {
+                msg.forEach( function(m) {
+                    $('#messages').append($('<li>').text(m));
+                });
+            }
+        } else {
+            $('#messages').append($('<li>').text(msg));
+        }
+    });
+    // channel.unbind('status_update');
+
+    $('form').submit(function() {
+        // user_command =>
+        dispatcher.trigger('user_command', $('#m').val());
+        $('#m').val('');
+        return false;
     });
 
-    channel.unbind('printer_stat');
 </script>
+<ul id="messages">
+</ul>
+<form action="">
+    <input id="m"><button>SEND TO PRINTER</button>
+</form>
