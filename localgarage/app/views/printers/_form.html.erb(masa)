@@ -12,6 +12,7 @@
     </div>
   <% end %>
 
+
   <div class="form-group">
     <%= f.label :image, :class => 'control-label' %>
     <div id="decorate_btn">

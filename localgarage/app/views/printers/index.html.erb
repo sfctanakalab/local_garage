@@ -18,12 +18,8 @@
     <div class="printer_list_right">
         <div class="printer_list_container">
             <!--<div class="filter_wrapper">
+                #文字検索用(masa)
                 <div class="filter_column">
-                    <div class="new_printer">
-                        <strong><%= link_to 'New Printer', new_printer_path, :class=>'new_printer_btn' %></strong>
-                    </div>
-                </div>
-                <!-- <div class="filter_column">
                     <div class="search_by_keyword">
                         <%= form_tag printers_path, :method => 'get' do %>
                             <span>素材を検索する</span>
@@ -60,41 +56,17 @@
                                         <div class="printer_info">
                                             <h4><%= link_to printer.machinemodel, printer %></h4>
                                             <p>located at <%= printer.description %></p>
-                                            <!--<%= printer.resolution %><br>-->
+                                            
                                             <% if current_user %>
                                                 <% if printer.user_id == current_user.id %>
                                                     <small><%= link_to '編集',  edit_printer_path(printer) %></small> |
                                                     <small><%= link_to '削除',  printer,  method: :delete,  data: { confirm: 'Are you sure?' } %></small>
                                                 <% end %>
                                             <% end %>
+
                                         </div>
                                     </td>
                                 </tr>
-                                <!--<tr>
-                                    <td><h4><%= link_to printer.machinemodel, printer %></h4></td>
-                                </tr>
-                                <tr>
-                                    <td><%= printer.resolution %></td>
-                                </tr>
-                                <tr>
-                                    <td><%= printer.location %></td>
-                                </tr>-->
-                                <!--<tr>
-                                    <td><%= printer.condition %></td>
-                                </tr>-->
-                                <!--<tr> printer.machinemodelへリンクを移動
-                                    <td><%= link_to 'このプリンターにする', printer %></td>
-                                </tr>
-                                <% if current_user %>
-                                    <% if printer.user_id == current_user.id %>
-                                        <tr>
-                                            <td><%= link_to 'プリンター情報を修正する',  edit_printer_path(printer) %></td>
-                                        </tr>
-                                        <tr>
-                                            <td><%= link_to '登録したプリンターを削除する',  printer,  method: :delete,  data: { confirm: 'Are you sure?' } %></td>
-                                        </tr>
-                                    <% end %>
-                                <% end %>-->
                             </table>
                         </div>
                     </div>
@@ -116,54 +88,54 @@ body{
 </style>
 
 
+// 文字検索＋checkboxのvalueによる文字検索のスクリプト(masa)
+// <script type="text/javascript">
+//       $(document).ready(function(){
+//           getParam();
+//       });
 
-<script type="text/javascript">
-      $(document).ready(function(){
-          getParam();
-      });
+//       function getParam() {
+//           var url   = location.href;
+//           if(url.indexOf("?") != -1){
+//             parameters    = url.split("?");
+//             params   = parameters[1].split("&");
+//             var paramsArray = [];
+//             for ( i = 0; i < params.length; i++ ) {
+//                 neet = params[i].split("=");
+//                 paramsArray.push(neet[0]);
+//                 paramsArray[neet[0]] = neet[1];
+//             }
+//             var categoryKey = paramsArray["search"];
+//             if(categoryKey == "true"){
+//               document.getElementById('checkbox1').innerHTML = '<label><%=check_box_tag :true, "true", true%>利用可能</lable>';
+//             }
+//             if(categoryKey == "false"){
+//               document.getElementById('checkbox2').innerHTML = '<label><%=check_box_tag :false, "false", true%>利用不可</lable>';
+//             }
+//           }else{
+//             document.getElementById('checkbox1').innerHTML = '<label><%=check_box_tag :true, "true", false%>利用可能</lable>';
+//             document.getElementById('checkbox2').innerHTML = '<label><%=check_box_tag :false, "false", false%>利用不可</lable>';
+//           }
+//       }
 
-      function getParam() {
-          var url   = location.href;
-          if(url.indexOf("?") != -1){
-            parameters    = url.split("?");
-            params   = parameters[1].split("&");
-            var paramsArray = [];
-            for ( i = 0; i < params.length; i++ ) {
-                neet = params[i].split("=");
-                paramsArray.push(neet[0]);
-                paramsArray[neet[0]] = neet[1];
-            }
-            var categoryKey = paramsArray["search"];
-            if(categoryKey == "true"){
-              document.getElementById('checkbox1').innerHTML = '<label><%=check_box_tag :true, "true", true%>利用可能</lable>';
-            }
-            if(categoryKey == "false"){
-              document.getElementById('checkbox2').innerHTML = '<label><%=check_box_tag :false, "false", true%>利用不可</lable>';
-            }
-          }else{
-            document.getElementById('checkbox1').innerHTML = '<label><%=check_box_tag :true, "true", false%>利用可能</lable>';
-            document.getElementById('checkbox2').innerHTML = '<label><%=check_box_tag :false, "false", false%>利用不可</lable>';
-          }
-      }
+//       $(function(){
+//           $("#checkbox1 :checkbox").click(function(){
+//             if($("#checkbox1 :checked").length > 0){
+//               location.href='http://localhost:3000/printers?utf8=%E2%9C%93&search=abs&commit=Search';
+//             }else{
+//               location.href='http://localhost:3000/printers';
+//             }
+//           });
+//       });
 
-      $(function(){
-          $("#checkbox1 :checkbox").click(function(){
-            if($("#checkbox1 :checked").length > 0){
-              location.href='http://localhost:3000/printers?utf8=%E2%9C%93&search=abs&commit=Search';
-            }else{
-              location.href='http://localhost:3000/printers';
-            }
-          });
-      });
+//       $(function(){
+//           $("#checkbox2 :checkbox").click(function(){
+//             if($("#checkbox2 :checked").length > 0){
+//               location.href='http://localhost:3000/printers?utf8=%E2%9C%93&search=false&commit=Search';
+//             }else{
+//               location.href='http://localhost:3000/printers';
+//             }
+//           });
+//       });
 
-      $(function(){
-          $("#checkbox2 :checkbox").click(function(){
-            if($("#checkbox2 :checked").length > 0){
-              location.href='http://localhost:3000/printers?utf8=%E2%9C%93&search=false&commit=Search';
-            }else{
-              location.href='http://localhost:3000/printers';
-            }
-          });
-      });
-
-  </script>
+//   </script>
