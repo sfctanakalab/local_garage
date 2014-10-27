@@ -9,6 +9,6 @@ class NoticeMailer < ActionMailer::Base
   def notify_mail
     @greeting = "Hi"
 
-    mail to: "min.kono.min@gmail.com", subject: "[Localgarage]Printer_URL"
+    mail to: "mitsuimasayoshi@gmail.com", subject: "[Localgarage]Printer_URL"
   end
 end
