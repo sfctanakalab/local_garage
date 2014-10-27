@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141027165108) do
+ActiveRecord::Schema.define(version: 20141027214951) do
 
   create_table "data", force: true do |t|
     t.string   "stl_url"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20141027165108) do
     t.decimal  "resolution"
     t.text     "location"
     t.string   "image_url"
-    t.boolean  "condition"
+    t.boolean  "condition",    default: true, null: false
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
