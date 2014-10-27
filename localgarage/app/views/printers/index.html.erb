@@ -59,7 +59,7 @@
                                         </div>
                                         <div class="printer_info">
                                             <h4><%= link_to printer.machinemodel, printer %></h4>
-                                            <p>located at <%= printer.location %></p>
+                                            <p>located at <%= printer.description %></p>
                                             <!--<%= printer.resolution %><br>-->
                                             <% if current_user %>
                                                 <% if printer.user_id == current_user.id %>
