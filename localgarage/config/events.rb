@@ -11,6 +11,11 @@ WebsocketRails::EventMap.describe do
   #     subscribe :new, :to => ProductController, :with_method => :new_product
   #   end
   # The above will handle an event triggered on the client like `product.new`.
-  subscribe :status_to_user, to: RemoteControlController, with_method: :recieve_status
-  subscribe :user_command, to: RemoteControlController, with_method: :send_command
+
+  namespace :printer_to_user do
+      subscribe :status_update, to: RemoteControlController, with_method: :recieve_status
+  end
+  namespace :user_to_printer do
+      subscribe :user_command, to: RemoteControlController, with_method: :send_command
+  end
 end
