@@ -30,8 +30,9 @@
 
                 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class=>'cancel_btn' %></p>
             </div>
-
-            <%= link_to "Back", :back %>
+            <div class="account_edit_back_btn">
+                <%= link_to "Back", :back %>
+            </div>
         </div>
     </div>
 </div>
@@ -42,9 +43,21 @@
         </li>
         <li>
             <h4>企業情報</h4>
+            <dl>
+                <dd>About</dd>
+                <dd>Jobs</dd>
+                <dd>Blog</dd>
+                <dd>Help</dd>
+            </dl>
         </li>
         <li>
             <h4>Local Garage おすすめ</h4>
+            <dl>
+                <dd>About</dd>
+                <dd>Jobs</dd>
+                <dd>Blog</dd>
+                <dd>Help</dd>
+            </dl>
         </li>
     </ul>
     <div class="social_link">
@@ -53,5 +66,8 @@
             <li>twitter</li>
             <li>google</li>
         </ul>
+    </div>
+    <div class="copyright">
+        <small>© Local Garage</small>
     </div>
 </div>
