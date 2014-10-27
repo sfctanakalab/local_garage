@@ -36,6 +36,6 @@ class FilamentsController < ApplicationController
 
   private
     def filament_params
-      params[:filament].permit(:material)
+      params[:filament].permit(:material, :printer_id)
     end
   end
