@@ -1,6 +1,6 @@
 <%- model_class = Printer -%>
 <div class="printer_info_title margin_top_100">
-    <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+    <h1><%= @printer.machinemodel %></h1>
 </div>
 
 <div class="custom_container padding_top_70 printer_info_content">
@@ -32,14 +32,14 @@
                 <label><strong><%= model_class.human_attribute_name(:location) %>:</strong></label>
                 <div class="content"><%= @printer.location %></div>
             </div>
-            <div class="printer_info_column">
+            <!--<div class="printer_info_column">
                 <label><strong><%= model_class.human_attribute_name(:condition) %>:</strong></label>
                 <div class="content"><%= @printer.condition %></div>
             </div>
             <div class="printer_info_column">
                 <label><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></label>
                 <div class="content"><%= @printer.user_id %></div>
-            </div>
+            </div>-->
         </div>
     </div>
     <div class="printer_info_sidebar" id="panel">

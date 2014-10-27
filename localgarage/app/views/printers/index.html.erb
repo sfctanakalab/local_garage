@@ -55,11 +55,12 @@
                                         </div>
                                         <div class="printer_info">
                                             <h4><%= link_to printer.machinemodel, printer %></h4>
+                                            <p>located at <%= printer.location %>location</p>
                                             <!--<%= printer.resolution %><br>-->
                                             <% if current_user %>
                                                 <% if printer.user_id == current_user.id %>
-                                                    <%= link_to '編集',  edit_printer_path(printer) %> |
-                                                    <%= link_to '削除',  printer,  method: :delete,  data: { confirm: 'Are you sure?' } %>
+                                                    <small><%= link_to '編集',  edit_printer_path(printer) %></small> |
+                                                    <small><%= link_to '削除',  printer,  method: :delete,  data: { confirm: 'Are you sure?' } %></small>
                                                 <% end %>
                                             <% end %>
                                         </div>

@@ -220,6 +220,9 @@ header li{
 	margin-top: 0px;
 	padding-top: 5px;
 }
+.printer_info p{
+	margin-bottom: 3px;
+}
 /***** search printer *****/
 .filter_wrapper{
 	width: 100%;
