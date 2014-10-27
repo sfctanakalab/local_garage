@@ -33,7 +33,8 @@ class PrintersController < ApplicationController
     #     format.json { render json: @printerfilamentlink.errors, status: :unprocessable_entity }
     #   end
     # end
-
+    @printer.filaments.build
+    @filament = Filament.all
   end
 
   # GET /printers/new
@@ -60,6 +61,7 @@ class PrintersController < ApplicationController
 
     #ここでlogicを走らせて、最終的に入力されたチェックボックスの値からfilament_idを決定する。
     #複数選択の場合も該当するfilament_id全てと新規PrinterのIDを中間テーブルにひもづけて保存すればよい。
+
     @material_type = params[:material_type]
     @color_type = params[:color_type]
 
@@ -131,7 +133,7 @@ class PrintersController < ApplicationController
     def printer_params
       params.require(:printer).permit(:machinemodel, :sizex, :sizey, :sizez, 
         :resolution, :location, :image_url, :condition, :user_id, :title, :description,
-        :address, :latitude, :longitude, :printer_filament_links_attributes => [:id, :printer_id, :filament_id],
+        :address, :latitude, :longitude,:material, :color, :printer_filament_links_attributes => [:id, :printer_id, :filament_id],
         :printer_filaments_attributes => [:id, :material, :color])
     end
     def printerfilamentlink_params

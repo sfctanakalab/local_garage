@@ -12,7 +12,12 @@
     </div>
   <% end %>
 
-  
+  <!--<div class="field">
+    <%= f.fields_for :printer_filament_links do |pfl| %>
+      <%= pfl.label '素材' %><br>
+      <%= pfl.collection_select :filament_id, @filament, :id, :material %>
+    <% end %>
+  </div>-->
 
   <!-- <table>
     <tr>
@@ -50,23 +55,23 @@
       </td>
     </tr>
   </table> -->
-  
-  
+
+
 
   <div class="form-group">
     <%= f.label :location_name, :class => 'control-label' %>
     <%= f.text_field :description, :class => 'form-control' %>
-  </div> 
+  </div>
   <div class="form-group">
     <%= f.label :address, :class => 'control-label' %>
     <%= f.text_field :address, :class => 'form-control' %>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :machine_name, :class => 'control-label' %>
     <%= f.text_field :machinemodel, :class => 'form-control' %>
-  </div> 
-  
+  </div>
+
   <div class="form-group">
     <%= f.label :resolution, :class => 'control-label' %>
     <%= f.text_field :resolution, :class => 'form-control' %>
@@ -74,15 +79,24 @@
 
   <div class="form-group">
     <%= f.label :image, :class => 'control-label' %>
-    <div id="">
-      <!--<div class="decorate_label">ファイルを選択</div>-->
-      <%= f.file_field :image, accept: "image/*", :class => 'form-control' %>
+    <div id="decorate_btn">
+      <div class="decorate_label" id="list">ファイルを選択</div>
+      <%= f.file_field :image, accept: "image/*", :class => 'form-control', :id=>'files' %>
     </div>
   </div>
   <div class="form-group">
+    <%= f.label :material, :class => 'control-label' %>
+    <%= f.text_field :material, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :material_color, :class => 'control-label' %>
+    <%= f.text_field :color, :class => 'form-control' %>
+  </div>
+
+  <!--<div class="form-group">
     <%= f.label :condition, :class => 'control-label' %>
     <%= f.check_box :condition, :class => 'form-control' %>
-  </div>
+  </div>-->
 
   <div class="form-group">
     <label class="control-label"></label>
@@ -90,3 +104,15 @@
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")), printers_path, :class => 'cancel_btn, cancel_create_printer', 'data-no-turbolink' => true %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+function handleFileSelect(evt) {
+    var files = evt.target.files;
+    var output = [];
+    for (var i = 0, f; f = files[i]; i++) {
+      output.push('<strong>', unescape(f.name), '</strong>');
+    }
+    document.getElementById('list').innerHTML = output.join('');
+}
+document.getElementById('files').addEventListener('change', handleFileSelect, false);
+</script>

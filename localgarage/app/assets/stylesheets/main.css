@@ -220,6 +220,9 @@ header li{
 	margin-top: 0px;
 	padding-top: 5px;
 }
+.printer_info p{
+	margin-bottom: 3px;
+}
 /***** search printer *****/
 .filter_wrapper{
 	width: 100%;
@@ -310,10 +313,16 @@ header li{
 	-o-transition-duration:0.3s;
 	-ms-transition-duration:0.3s;
 }
+.header_custom_container .custom_navigator .new_printer a{
+	color: #fff;
+}
 .new_printer_btn:hover{
 	color: #fff;
 	text-decoration: none;
 	background-color: rgb(53,183,232);
+}
+.new_printer_wrapper{
+	width: 120px;
 }
 /***** printer details *****/
 .printer_info_title h1{
@@ -520,7 +529,14 @@ header li{
 }
 /***** decorate image upload button *****/
 #decorate_btn{
+	width: 170px;
 	background-color: rgb(212,217,219);
+}
+#decorate_btn:hover{
+	background-color: rgb(202,207,209);
+}
+#decorate_btn:active{
+	background-color: rgb(192,197,199);
 }
 #decorate_btn input{
 	opacity: 0;
@@ -597,7 +613,7 @@ header li{
 	position: absolute;
 	display: none;
 	right: 0;
-	margin: 0px 25px 0px 0px;
+	margin: 0px 145px 0px 0px;
 	background-color: #fff;
 	border: solid 1px rgb(212,217,219);
 	text-align: left;

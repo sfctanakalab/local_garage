@@ -22,10 +22,15 @@
                     Logged in as <strong id="current_user" onmouseover="openNav();" onmouseout="closeNav();"><%= current_user.email %></strong>
                     <div id="navlink" onmouseover="openNav();" onmouseout="closeNav();">
                         <dl>
-                            <dd><%= link_to 'Edit profile',  edit_user_registration_path,  :class => 'navbar-link', :name=>'fixed_header' %></dd>
-                            <dd><%= link_to "Logout",  destroy_user_session_path,  method: :delete, :class=>'navbar-link', :name=>'fixed_header'  %></dd>
+                            <dd><%= link_to 'Edit profile',  edit_user_registration_path,  :class => 'navbar-link', :name=>'' %></dd>
+                            <dd><%= link_to "Logout",  destroy_user_session_path,  method: :delete, :class=>'navbar-link', :name=>'' %></dd>
                         </dl>
                     </div>
+                    </li>
+                    <li class="new_printer_wrapper" id="new_printer_id">
+                        <div class="new_printer">
+                        <strong><%= link_to 'New Printer', new_printer_path, :class=>'new_printer_btn' %></strong>
+                        </div>
                     </li>
                 <% else %>
                     <li>
