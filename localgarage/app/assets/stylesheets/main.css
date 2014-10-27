@@ -145,13 +145,24 @@ header li{
 /***** find 3d printer *****/
 .find_3d_printer{
 	width: 100%;
-	background-color: rgba(80,80,80,0.5);
+	background-color: rgba(80,80,80,0.6);
 	text-align: center;
-	padding: 15px 0px 15px;
-	margin: -71px 0px 30px;
+	padding: 20px 0px 20px;
+	margin: -81px 0px 30px;
 }
 .find_3d_printer a{
 	color: #fff;
+	font-weight: 600;
+	padding: 10px 15px;
+	border-radius: 2px;
+	text-decoration: none;
+	background-color: rgb(245,85,70);
+}
+.find_3d_printer a:hover{
+	background-color: rgb(235,75,60);
+}
+.find_3d_printer a:active{
+	background-color: rgb(225,65,50);
 }
 /***** custom container *****/
 .custom_container{
@@ -162,10 +173,26 @@ header li{
 	padding: 20px 40px 20px;
 	text-align: center;
 }
+.about ul{
+	display: table;
+	width: 100%;
+}
+.about li{
+	display: table-cell;
+	width: 50%;
+}
+.about li p{
+	padding: 10px;
+}
 /***** how to use *****/
 .how_to_use .title{
 	text-align: center;
 	padding-bottom: 20px;
+}
+.how_to_use .title h2{
+	font-weight: 400;
+	margin: 55px 0px 10px;
+	font-size: 35px;
 }
 .how_to_use .content ul{
 	list-style: none;
@@ -356,6 +383,7 @@ header li{
 }
 .header_custom_container .custom_navigator .new_printer a{
 	color: #fff;
+	border-radius: 2px;
 }
 .new_printer_btn:hover{
 	color: #fff;
@@ -685,8 +713,15 @@ header li{
 	color: #fff;
 }
 #lets_print h1{
-	margin-top: 140px;
+	margin-top: 130px;
 	font-weight: 700;
 	font-size: 70px;
-	letter-spacing: 2px;
+	letter-spacing: 3px;
+}
+/***** mask *****/
+.mask{
+	width: 100%;
+	height: 400px;
+	background-color: rgba(20,20,20,0.1);
+	position: absolute;
 }
