@@ -2,6 +2,8 @@
 body{
 	width: 100%;
 	height: 100%;
+	position: relative;
+	z-index: 1;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	font-family: "Helvetica Neue",
@@ -709,6 +711,7 @@ header li{
 /***** let's print *****/
 #lets_print{
 	position: absolute;
+	z-index: 10;
 	top: 0;
 	width: 100%;
 	text-align: center;
@@ -719,6 +722,23 @@ header li{
 	font-weight: 700;
 	font-size: 70px;
 	letter-spacing: 3px;
+}
+#lets_print h4{
+	font-weight: 500;
+	font-size: 20px;
+}
+#lets_print h5{
+	font-size: 18px;
+	background-color: rgba(240,240,240,0.4);
+	width: 140px;
+	margin: 35px auto 0px;
+	padding: 10px;
+	border-radius: 4px;
+	z-index: 100;
+	cursor: pointer;
+}
+#lets_print h5:hover{
+	background-color: rgba(80,80,80,0.4);
 }
 /***** mask *****/
 .mask{

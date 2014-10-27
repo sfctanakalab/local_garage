@@ -1,20 +1,20 @@
 
 <div class="top_image">
 	<div class="mask"></div>
-	<video poster="http://web.sfc.keio.ac.jp/~t13954tm/movie/sample.JPG" autoplay loop muted>
+	<video autoplay loop muted>
 		<source src="http://web.sfc.keio.ac.jp/~t13954tm/movie/sample.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
   	</video>
-  	<div id="lets_print"><h1>Fabricate your idea</h1></div>
+  	<div id="lets_print">
+  		<h1>Fabricate your idea</h1>
+  		<h4>Our service wants to help you to realize your idea in very early stage.</h4>
+  		<h5 onclick="scrollToHowtouse();">How to Use</h5>
+  	</div>
 </div>
 <div class="find_3d_printer">
 
     <h4><%= link_to "Browse Printers",  printers_path, 'data-no-turbolink' => true %></h4>
 </div>
 <div class="custom_container">
-	<div class="about">
-		<h4>Our service wants to help you to realize your idea in very early stage. <br>
-			If you come up with some idea, you just find the best 3D printer and operate it directly to fabricate your idea.</h4>
-	</div>
 	<div class="how_to_use">
 		<div class="title">
 			<h2>HOW TO USE LOCAL GARAGE</h2>
@@ -98,7 +98,10 @@ function changeHeaderColor() {
 	}
 	document.getElementById('header_wrapper').style.backgroundColor = "rgba(0,0,0,0)";
 	document.getElementById('header_wrapper').style.border = "none";
-	document.getElementById('navlink').style.color = "#000";
+	var navlink = document.getElementById('navlink');
+	if(navlink != null){
+		navlink.style.color = "#000";
+	}
 	//document.getElementById('new_printer_id').style.display = "none";
 }
 changeHeaderColor();
@@ -110,5 +113,9 @@ window.onscroll = function () {
     }else{
     	document.getElementById('header_wrapper').style.backgroundColor = "rgba(0,0,0,0)";
     }
+}
+
+function scrollToHowtouse() {
+	scrollTo(0,450);
 }
 </script>
