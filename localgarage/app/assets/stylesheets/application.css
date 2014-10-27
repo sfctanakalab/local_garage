@@ -12,7 +12,5 @@
  *
  *
  *= require_self
- *= require Cosmo/loader
- * = require Cosmo/bootswatch
  *= require main
  */
