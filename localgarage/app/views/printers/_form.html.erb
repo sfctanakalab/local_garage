@@ -19,22 +19,59 @@
     <% end %>
   </div>-->
 
-  
+  <!-- <table>
+    <tr>
+      <td>
+        <%= check_box_tag "material_type[]", "ABS" %>ABS
+      </td>
+      <td>
+        <%= check_box_tag "material_type[]", "PLA" %>PLA
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= check_box_tag "color_type[]", "red" %>red
+      </td>
+      <td>
+        <%= check_box_tag "color_type[]", "blue" %>blue
+      </td>
+      <td>
+        <%= check_box_tag "color_type[]", "yellow" %>yellow
+      </td>
+      <td>
+        <%= check_box_tag "color_type[]", "green" %>green
+      </td>
+      <td>
+        <%= check_box_tag "color_type[]", "black" %>black
+      </td>
+      <td>
+        <%= check_box_tag "color_type[]", "white" %>white
+      </td>
+      <td>
+        <%= check_box_tag "color_type[]", "orange" %>orange
+      </td>
+      <td>
+        <%= check_box_tag "color_type[]", "transparent" %>transparent
+      </td>
+    </tr>
+  </table> -->
+
+
 
   <div class="form-group">
     <%= f.label :location_name, :class => 'control-label' %>
     <%= f.text_field :description, :class => 'form-control' %>
-  </div> 
+  </div>
   <div class="form-group">
     <%= f.label :address, :class => 'control-label' %>
     <%= f.text_field :address, :class => 'form-control' %>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :machine_name, :class => 'control-label' %>
     <%= f.text_field :machinemodel, :class => 'form-control' %>
-  </div> 
-  
+  </div>
+
   <div class="form-group">
     <%= f.label :resolution, :class => 'control-label' %>
     <%= f.text_field :resolution, :class => 'form-control' %>
@@ -47,6 +84,15 @@
       <%= f.file_field :image, accept: "image/*", :class => 'form-control', :id=>'files' %>
     </div>
   </div>
+  <div class="form-group">
+    <%= f.label :material, :class => 'control-label' %>
+    <%= f.text_field :material, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :material_color, :class => 'control-label' %>
+    <%= f.text_field :color, :class => 'form-control' %>
+  </div>
+
   <!--<div class="form-group">
     <%= f.label :condition, :class => 'control-label' %>
     <%= f.check_box :condition, :class => 'form-control' %>

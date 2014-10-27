@@ -9,10 +9,18 @@
         <div class="printer_img"><%= image_tag image_printer_path(@printer) %></div>
         <div class="printer_info_wrapper">
             <div class="printer_info_column">
+                <label><strong><%= model_class.human_attribute_name(:material) %>:</strong></label>
+                <div class="content"><%= @printer.material %></div>
+            </div>
+            <div class="printer_info_column">
+                <label><strong><%= model_class.human_attribute_name(:color) %>:</strong></label>
+                <div class="content"><%= @printer.color%></div>
+            </div>
+            <div class="printer_info_column">
                 <label><strong><%= model_class.human_attribute_name(:machinemodel) %>:</strong></label>
                 <div class="content"><%= @printer.machinemodel %></div>
             </div>
-            <div class="printer_info_column">
+            <!-- <div class="printer_info_column">
                 <label><strong><%= model_class.human_attribute_name(:sizex) %>:</strong></label>
                 <div class="content"><%= @printer.sizex %></div>
             </div>
@@ -23,14 +31,14 @@
             <div class="printer_info_column">
                 <label><strong><%= model_class.human_attribute_name(:sizez) %>:</strong></label>
                 <div class="content"><%= @printer.sizez %></div>
-            </div>
+            </div> -->
             <div class="printer_info_column">
                 <label><strong><%= model_class.human_attribute_name(:resolution) %>:</strong></label>
                 <div class="content"><%= @printer.resolution %></div>
             </div>
             <div class="printer_info_column">
                 <label><strong><%= model_class.human_attribute_name(:location) %>:</strong></label>
-                <div class="content"><%= @printer.location %></div>
+                <div class="content"><%= @printer.description %></div>
             </div>
             <!--<div class="printer_info_column">
                 <label><strong><%= model_class.human_attribute_name(:condition) %>:</strong></label>
@@ -39,7 +47,12 @@
             <div class="printer_info_column">
                 <label><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></label>
                 <div class="content"><%= @printer.user_id %></div>
+
+            </div>
+            
+
             </div>-->
+
         </div>
     </div>
     <div class="printer_info_sidebar" id="panel">
