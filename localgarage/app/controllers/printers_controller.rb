@@ -41,10 +41,16 @@ class PrintersController < ApplicationController
   # GET /printers/new
   def new
     @printer = Printer.new
+<<<<<<< HEAD
+    @filament = Filament.all
+    @printer.printer_filament_links.build
+    @printer.filaments.build
+=======
     # @filament = Filament.all
     # @printer.printer_filament_links.build
     # @printer.filaments.build
 
+>>>>>>> 60c5f2d469ceae05b9d792606179a5ec96639846
   end
 
   # GET /printers/1/edit
@@ -67,6 +73,22 @@ class PrintersController < ApplicationController
     #ここでlogicを走らせて、最終的に入力されたチェックボックスの値からfilament_idを決定する。
     #複数選択の場合も該当するfilament_id全てと新規PrinterのIDを中間テーブルにひもづけて保存すればよい。
 
+<<<<<<< HEAD
+    @material_type = params[:material_type]
+    @color_type = params[:color_type]
+
+
+    
+    f = Filament.where(["material = ? and color = ?", "PLA", "red"])
+    if f.count != 0
+      f = f[0]
+    else
+      f = Filament.new
+      f = f[0]
+    end
+    
+    #filament_id = f.id
+=======
     # @material_type = params[:material_type]
     # @color_type = params[:color_type]
     # f = Filament.where(["material = ? and color = ?", "PLA", "red"])
@@ -76,6 +98,7 @@ class PrintersController < ApplicationController
     #   f = Filament.new
     #   f = f[0]
     # end
+>>>>>>> 60c5f2d469ceae05b9d792606179a5ec96639846
     
 
     respond_to do |format|
@@ -121,6 +144,10 @@ class PrintersController < ApplicationController
     send_data(@printer.image, disposition: :inline)
   end
   
+  def mail_send
+    @mail = NoticeMailer.notify_mail.deliver
+    render :text => 'send finish'
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

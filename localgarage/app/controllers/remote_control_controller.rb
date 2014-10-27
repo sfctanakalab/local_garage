@@ -5,6 +5,7 @@ class RemoteControlController < WebsocketRails::BaseController
   def load_status
     res = message()
     Rails.logger.debug "load_status: #{res}"
+
     WebsocketRails[:printer_status].trigger(:status_update, res)
   end
 
