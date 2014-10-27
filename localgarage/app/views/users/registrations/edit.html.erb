@@ -30,8 +30,9 @@
 
                 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class=>'cancel_btn' %></p>
             </div>
-
-            <%= link_to "Back", :back %>
+            <div class="account_edit_back_btn">
+                <%= link_to "Back", :back %>
+            </div>
         </div>
     </div>
 </div>
