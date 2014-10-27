@@ -5,13 +5,18 @@ class RemoteControlController < WebsocketRails::BaseController
   def recieve_status
     res = message()
 
-    WebsocketRails[:ps].trigger(:status_update, res)
+    # send_message(:command_to_printer, response)
+    WebsocketRails[:printer_status].trigger(:update, res)
   end
 
   # user_command => command_to_printer
   def send_command
     res = message()
-    send_message(:command_to_printer, response)
+    # broadcast_message(:status_update, res, :namespace => "printer_to_user")
+    # send_message(:status_update, res, :namespace => "printer_to_user")
+    WebsocketRails[:printer_status].trigger(:update, res)
+
+    Rails.logger.debug "reached message: #{res}"
   end
 
   # def send_stl

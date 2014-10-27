@@ -17,6 +17,7 @@
 //= require websocket_rails/main
 //= require underscore
 //= require gmaps/google
+//= require sockjs
 
 function incSearch(){
   clearTimeout(incSearch.timeid);

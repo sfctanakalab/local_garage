@@ -60,6 +60,10 @@ class PrintersController < ApplicationController
     @printer.image = params[:printer][:image].read 
     # @printer.printer_id = params[:id]
 
+    #relationship Printer & User
+    u = User.find(current_user)
+    u.printers << @printer
+
     #ここでlogicを走らせて、最終的に入力されたチェックボックスの値からfilament_idを決定する。
     #複数選択の場合も該当するfilament_id全てと新規PrinterのIDを中間テーブルにひもづけて保存すればよい。
 

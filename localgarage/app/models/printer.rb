@@ -1,5 +1,4 @@
 class Printer < ActiveRecord::Base
- # belongs_to :user
   validates :address, presence: true
   # リレーション用（masa)
   # has_many :printer_filament_links
@@ -8,6 +7,10 @@ class Printer < ActiveRecord::Base
   # accepts_nested_attributes_for :filaments
   geocoded_by :address
   after_validation :geocode
+  has_many :printers_users
+  has_many :users, :through => :printers_users
+
+
 
   # 文字検索用(masa)
   # def self.search(search)
@@ -17,6 +20,16 @@ class Printer < ActiveRecord::Base
   #     Printer.all
   #   end
   # end
+
+  
+  # def self.search(search)
+  #   if search
+  #     Printer.all
+  #   else
+  #     Printer.all
+  #   end
+  # end
+
 
 
   # リレーション用のロジック(masa)
