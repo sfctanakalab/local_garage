@@ -48,7 +48,7 @@ function changeDom(lists){
   if(lists.length == 0) return false;
 };
 
-var tgtInput = document.getElementById('tgtInput');
-tgtInput.onkeydown = incSearch;
+// var tgtInput = document.getElementById('tgtInput');
+// tgtInput.onkeydown = incSearch;
 
 
