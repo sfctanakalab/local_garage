@@ -14,3 +14,13 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# generic files to ignore
+*~
+*.DS_Store
+*.swp
+.rvmrc
+.ruby-version
+/.idea
+/.codeintel
+/vendor/bundle
