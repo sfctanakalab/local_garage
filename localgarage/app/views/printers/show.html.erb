@@ -39,7 +39,7 @@
         <div class="sidebar_container" id="panel_2">
             <% if @printer.condition == true %>
                 <h4 class="use_this_printer">
-                                    <%= link_to "このプリンターを使う" , data_path %></h4>
+                                    <%= link_to "このプリンターを使う" , 'http://konomin.dyndns.org/' %></h4>
                                     <%= link_to 'Send Mail', action: "mail_send" %>
             <% else %>
                 <h4 class="during_use">このプリンターは現在使用中です</h4>
