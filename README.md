@@ -7,7 +7,7 @@ Railsアプリをherokuにあげるまで。
 https://devcenter.heroku.com/articles/rails4
 https://devcenter.heroku.com/articles/getting-started-with-rails4
 
-# 最初に
+## 最初に
 
 herokuのアカウントなどの登録を終了している前提。
 
@@ -19,7 +19,7 @@ $ heroku login
 Railsアプリにおいて、ローカルではsqlite3がデフォルトで動いてるんですが、Herokuではsqlite3が動きません。公式ドキュメントにもある通り、開発と製品のデータベース環境は一致させる方がよいらしいので、ローカル環境にもpostgresを利用できる環境をつくります。
 
 
-# gemファイルの編集
+## gemファイルの編集
 
 静的アセットのservingとlogging on Herokuのために以下を追加
 gem 'rails_12factor', group: :production
@@ -160,7 +160,7 @@ $ heroku run rake db:migrate
 
 ＊ちゃんときれいにマイグレーションファイルを整理してからpushするべき。
 
-# サーバ設定
+## サーバ設定
 最後にWebサーバの設定をします。
 railsではWebrickというサーバがデフォルトで動いています。テストには十分ですが、製品用のサーバーを設定したほうがいいとのことなので、UnicomというWebサーバを設定します。
 
@@ -208,7 +208,7 @@ Foremanをつかったlocalでのunicornのテストなどを行います。
 
 これで一通りの設定は終わりです。
 
-# エラー
+## エラー
 
 僕の場合は
 gem関係のエラーがまずでてきました。
