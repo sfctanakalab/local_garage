@@ -24,30 +24,47 @@
 			<ul>
 				<li name="how_to_use_content_li">
 					<div class="li_inside">
-						<h3>1. Find your 3D printer</h3>
-						<div class="how_to_use_img" name="how_to_use_img"><%= image_tag('SFC.jpg', :name=>"how_to_use_img") %></div>
-						<p>At first, please search your 3D printer located around you. Many types of 3D printers has been registered.
-						<br>
-						Details -> Our service wants to help you to realize your idea in early stage. To fabricate your idea, we provide options of material property, colour, printer resolution. You can search the best 3D printer to fabricate your idea.</p>
+						<div class="li_table_cell table_cell_left" name="table_cell">
+							<div class="how_to_use_img" name="how_to_use_img"><%= image_tag('icon-loupe.gif', :name=>"how_to_use_img") %></div>
+							<h3>Find your 3D printer</h3>
+							<div class="under_line" name="under_line_has_space"></div>
+						</div>
+						<div class="li_table_cell table_cell_right" name="table_cell">
+							<p name="text_has_space">At first, please search your 3D printer located around you. Many types of 3D printers has been registered.
+							<br>
+							<!--Details -> Our service wants to help you to realize your idea in early stage. To fabricate your idea, we provide options of material property, colour, printer resolution. You can search the best 3D printer to fabricate your idea.--></p>
+							<p class="color_red"><small>More</small></p>
+						</div>
 					</div>
 				</li>
 				<li name="how_to_use_content_li">
 					<div class="li_inside">
-						<h3>2. Fabricate</h3>
-						<div class="how_to_use_img" name="how_to_use_img"><%= image_tag('scoovo.jpg', :name=>"how_to_use_img") %></div>
-						<p>Secondly, please post your 3D data through our service. Our service will select the best slicer and CAM software related to your printer automatically, so you just post your 3D data and finish your work almost!! Our service support XXX.file format for now.
-						<br>
-						Details -> Our service doesn't support the optimisation of 3D data for now. If you are a beginner of 3D CAD, we suggest you should come into our 3D CAD community. In this community, we can share how to make 3D data with free software and how to find 3D data etc. </p>
+						<div class="li_table_cell table_cell_left" name="table_cell">
+							<div class="how_to_use_img" name="how_to_use_img"><%= image_tag('icon-camera.gif', :name=>"how_to_use_img") %></div>
+							<h3>Fabricate</h3>
+							<div class="under_line" name="under_line_has_space"></div>
+						</div>
+						<div class="li_table_cell table_cell_right" name="table_cell">
+							<p name="text_has_space">Secondly, please post your 3D data through our service. Our service will select the best slicer and CAM software related to your printer automatically, so you just post your 3D data and finish your work almost!! Our service support XXX.file format for now.
+							<br>
+							<!--Details -> Our service doesn't support the optimisation of 3D data for now. If you are a beginner of 3D CAD, we suggest you should come into our 3D CAD community. In this community, we can share how to make 3D data with free software and how to find 3D data etc. --></p>
+							<p class="color_red"><small>More</small></p>
+						</div>
 					</div>
 				</li>
 				<li name="how_to_use_content_li">
 					<div class="li_inside">
-						<h3>3. Deliver or Pick up</h3>
-						<div class="how_to_use_img" name="how_to_use_img"><%= image_tag('deliver.jpg', :name=>"how_to_use_img") %></div>
-						<p>Lastly, just print it out !! You can monitor printing process on our service. We will give completion notice of printing to your email address. After printing out, you just drop in the printer location to pick up your product.
-						<br>
-
-						</p>
+						<div class="li_table_cell table_cell_left" name="table_cell">
+							<div class="how_to_use_img" name="how_to_use_img"><%= image_tag('icon-syorui.gif', :name=>"how_to_use_img") %></div>
+							<h3>Deliver or Pick up</h3>
+							<div class="under_line" name="under_line_has_space"></div>
+						</div>
+						<div class="li_table_cell table_cell_right" name="table_cell">
+							<p name="text_has_space">Lastly, just print it out !! You can monitor printing process on our service. We will give completion notice of printing to your email address. After printing out, you just drop in the printer location to pick up your product.
+							<br>
+							</p>
+							<p class="color_red"><small>More</small></p>
+						</div>
 					</div>
 				</li>
 			</ul>
@@ -118,4 +135,28 @@ window.onscroll = function () {
 function scrollToHowtouse() {
 	scrollTo(0,360);
 }
+
+function changeLayout() {
+	var tableCell = document.getElementsByName('table_cell');
+	var textHasSpace = document.getElementsByName('text_has_space');
+	var underLineHasSpace = document.getElementsByName('under_line_has_space');
+	if(window.innerWidth < 510){
+		for(var i = 0; i < tableCell.length; i++){
+			tableCell[i].style.display = "table-row";
+		}
+		for(var i = 0; i < textHasSpace.length; i++){
+			textHasSpace[i].style.marginTop = "15%";
+		}
+	}else{
+		for(var i = 0; i < tableCell.length; i++){
+			tableCell[i].style.display = "table-cell";
+		}
+		for(var i = 0; i < textHasSpace.length; i++){
+			textHasSpace[i].style.marginTop = "0px";
+		}
+	}
+}
+window.addEventListener('load', changeLayout, false);
+window.addEventListener('resize', changeLayout, false);
+
 </script>
