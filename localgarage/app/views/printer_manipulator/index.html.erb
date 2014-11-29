@@ -1,33 +1,51 @@
 <script type="text/javascript">
-    var dispatcher = new WebSocketRails('localhost:4000/websocket');
+    $(document).ready(function() {
+        var socket_port = "4000",
+            socket_host = "localhost",
+            socket_req = socket_host + ":" + socket_port + "/websocket"
 
-    var channel = dispatcher.subscribe('ps');
+        var dispatcher = new WebSocketRails(socket_req);
 
-    // => status_update
-    channel.bind('status_update', function(data) {
-        console.log('channel event received: ' + data);
-        if (msg instanceof Array) {
-            if (msg.length > 0) {
-                msg.forEach( function(m) {
-                    $('#messages').append($('<li>').text(m));
-                });
+        // channel for watching printer_status 
+        var channel = dispatcher.subscribe('printer_status');
+        channel.bind('status_update', function(msg) {
+            if (msg instanceof Array) {
+                if (msg.length > 0) {
+                    for (key in msg) {
+                        $('#messages').append($('<li class="printer_status">').text(key + " : " + msg[key]));
+                    }
+                }
+            } else {
+                $('#messages').append($('<li class="printer_status">').text(msg));
             }
-        } else {
-            $('#messages').append($('<li>').text(msg));
-        }
-    });
-    // channel.unbind('status_update');
+        });
+        channel.bind('sent_command', function(msg) {
+            if (msg instanceof Array) {
+                if (msg.length > 0) {
+                    for (key in msg) {
+                        $('#messages').append($('<li class="command_sent">').text(key + " : " + msg[key]));
+                    }
+                }
+            } else {
+                $('#messages').append($('<li class="command_sent">').text(msg));
+            }
+        });
+        // channel.unbind('');
 
-    $('form').submit(function() {
-        // user_command =>
-        dispatcher.trigger('user_command', $('#m').val());
-        $('#m').val('');
-        return false;
-    });
+        $('form').submit(function(e) {
+            e.preventDefault();
 
+            msg = $('#m').val();
+            dispatcher.trigger('user_to_lg.user_command', msg);
+            $('#messages').append($('<li class="user_command">').text(msg));
+            $('#m').val('');
+            
+            return false;
+        });
+    });
 </script>
-<ul id="messages">
+<ul id="messages" style="margin-top: 100px;">
 </ul>
 <form action="">
-    <input id="m"><button>SEND TO PRINTER</button>
+    <input id="m"><input type="submit" value="SEND">
 </form>
