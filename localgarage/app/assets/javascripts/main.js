@@ -1,6 +1,6 @@
 //main.js
-window.addEventListener('load', rerenderLayout, false);
-window.addEventListener('resize', rerenderLayout, false);
+//window.addEventListener('load', rerenderLayout, false);
+//window.addEventListener('resize', rerenderLayout, false);
 
 function rerenderLayout() {
     var img = document.getElementsByName('how_to_use_img');
