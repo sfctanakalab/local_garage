@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  
+  get 'mail_send' => 'printers#mail_send'
 
   root 'home#index'
   resources :data
