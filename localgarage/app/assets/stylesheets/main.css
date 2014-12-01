@@ -4,7 +4,7 @@ body{
 	height: 100%;
 	position: relative;
 	z-index: 1;
-	background-color: rgb(253, 253, 253);
+	background-color: rgb(255, 255, 255);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	font-family: "Helvetica Neue",
@@ -70,10 +70,21 @@ input:focus{
 .color_red{
 	color: #ee1c25;
 }
+.color_blue{
+	color: rgb(43,173,222);
+}
 .under_line{
-	width: 50px;
+	width: 60px;
+	border-top: solid 0px rgb(231,231,231);
+	margin: 9% auto;
+}
+.under_line_black{
+	width: 60px;
 	border-top: solid 4px rgb(51,51,51);
-	margin: 8% auto 0px;
+	margin: 0% auto;
+}
+.hover{
+	background-color: rgba(33,163,212,0.8);
 }
 /***** margin *****/
 .margin_top_70{
@@ -95,7 +106,7 @@ header{
 	position: fixed;
 	top: 0;
 	z-index: 10;
-	background-color: #fff;
+	background-color: rgba(255,255,255,1);
 	border-bottom: solid 1px rgb(230,230,230);
 }
 header ul{
@@ -109,6 +120,7 @@ header li{
 .header_custom_container{
 	display: table;
 	width: 100%;
+	padding-bottom: 5px;
 }
 .header_custom_container .header_cell{
 	display: table-cell;
@@ -148,36 +160,41 @@ header li{
 	overflow: hidden;
 	position: relative;
 	z-index: -1;
+	margin-top: 60px;
 }
 .top_image video{
-	width: 100%;
-	margin-top: -100px
+	/*width: 100%;*/
+	margin-top: 0px;
+	position: fixed;
 }
 /***** find 3d printer *****/
 .find_3d_printer{
 	width: 100%;
-	background-color: rgba(80,80,80,0.6);
+	/*background-color: rgba(80,80,80,0.6);*/
 	text-align: center;
 	padding: 20px 0px 20px;
-	margin: -81px 0px 30px;
+	margin: 70px 0px 0px;
 }
 .find_3d_printer a{
 	color: #fff;
 	font-weight: 600;
-	padding: 10px 15px;
+	padding: 25px 50px;
 	border-radius: 2px;
 	text-decoration: none;
-	background-color: rgb(245,85,70);
+	/*background-color: rgb(245,85,70);*/
+	border: solid 3px rgba(255,255,255,1);
 }
 .find_3d_printer a:hover{
-	background-color: rgb(235,75,60);
+	background-color: rgba(33,163,212,0.8);
 }
 .find_3d_printer a:active{
-	background-color: rgb(225,65,50);
+	background-color: rgba(23,153,202,0.8);
 }
 /***** custom container *****/
 .custom_container{
-	padding: 0px 5% 60px;
+	padding: 0px 0px 0px;
+	margin-bottom: 357px;
+	background-color: rgb(253,253,253);
 }
 /***** about *****/
 .about{
@@ -202,7 +219,7 @@ header li{
 }
 .how_to_use .title h2{
 	font-weight: 600;
-	padding: 65px 0px 30px;
+	padding: 85px 0px 25px;
 	margin: 0px;
 	font-size: 20px;
 	letter-spacing: 1px;
@@ -217,18 +234,23 @@ header li{
 	display: table-row;
 }
 .how_to_use .content li .li_inside{
-	padding: 10% 15px;
+	padding: 4% 10%;
 	display: table;
-	border-top: solid 1px #ccc;
+	/*border-top: solid 1px #ccc;*/
 }
 .how_to_use .content li .li_inside h3{
-	font-size: 40px;
+	font-size: 32px;
 	font-weight: 500;
 	text-align: center;
 	letter-spacing: 1px;
+	margin-top: 0px;
+	line-height: 40px;
+}
+.how_to_use .content li .li_inside h3 span{
+	font-weight: 400;
 }
 .how_to_use .content li .li_inside p{
-	font-size: 19px;
+	font-size: 16px;
 	font-weight: 400;
 	line-height: 32px;
 	letter-spacing: 1px;
@@ -240,17 +262,31 @@ header li{
 .how_to_use .content li .li_inside .table_cell_left{
 	width: 40%;
 }
+.how_to_use .content li .li_inside .image_space_left{
+	margin-left: 5%;
+}
+.how_to_use .content li .li_inside .image_space_right{
+	margin-right: 5%;
+}
 .how_to_use .content li .li_inside .table_cell_right{
 	width: 60%;
-	padding: 20px 10%;
+}
+.how_to_use .content li .li_inside .space_left{
+	padding: 20px 0px 0px 20%;
+}
+.how_to_use .content li .li_inside .space_right{
+	padding: 20px 20% 0px 0px;
 }
 .how_to_use .content li .li_inside .how_to_use_img{
-	width: 80px;
-	margin: 0px auto 12%;
+	width: 100%;
+	margin: 12% auto 0%;
 	overflow: hidden;
 }
 .how_to_use .content li .li_inside img{
 	width: 100%;
+}
+.how_to_use .content li .back_gray{
+	background-color: rgb(245,245,245);
 }
 /***** printer list *****/
 .printer_list_wrapper{
@@ -682,6 +718,10 @@ header li{
 	color: #aab7bc;
 	background-color: rgb(72,77,79);
 	padding: 20px 0px 30px;
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	z-index: -5;
 }
 .footer ul{
 	margin: 0px;
@@ -777,8 +817,9 @@ header li{
 .mask{
 	width: 100%;
 	height: 500px;
-	background-color: rgba(20,20,20,0.1);
+	background-color: rgba(20,20,20,0.2);
 	position: absolute;
+	z-index: 1;
 }
 /***** select filament *****/
 .select_filament select{
@@ -838,4 +879,102 @@ header li{
 }
 .select_color select::-ms-expand {
   display: none;
+}
+/*-------------------- story --------------------*/
+#story_creator_1{
+	background-image: url('/assets/activator.jpg');
+	background-size: auto 100%;
+	background-position: center center;
+}
+#story_creator_2{
+	background-image: url('/assets/map.png');
+	background-size: auto 100%;
+	background-position: center center;
+}
+#story_creator_3{
+	background-image: url('/assets/communication.jpg');
+	background-size: auto 100%;
+	background-position: center center;
+}
+#story_owner_1{
+	background-image: url('/assets/smaho.png');
+	background-size: auto 100%;
+	background-position: center center;
+}
+#story_owner_2{
+	background-image: url('/assets/friends.png');
+	background-size: auto 100%;
+	background-position: center center;
+}
+/*-------------------- events --------------------*/
+.events{
+	background-color: rgb(245,245,245);
+}
+.events .title{
+	text-align: center;
+}
+.events .title h2{
+	font-weight: 600;
+	padding: 85px 0px 30px;
+	margin: 0px;
+	font-size: 20px;
+	letter-spacing: 1px;
+}
+.events .content{
+	width: 100%;
+	height: 500px;
+}
+.events .content ul{
+	list-style: none;
+	padding: 5% 10%;
+}
+.events .content li{
+	width: 48%;
+}
+.events .content .col_left{
+	margin-right: 4%;
+}
+.events .content .event img{
+	width: 100%;
+}
+.events .content .event h4{
+	font-weight: 600;
+	margin: 0px;
+	padding: 5%;
+	color: #fff;
+}
+.events .content .event p{
+	font-weight: 400;
+	margin: 0px;
+	padding: 2% 5%;
+	color: #fff;
+}
+.event_back_image{
+}
+.events .content .event .event_date p{
+	padding-top: 5%;
+}
+.event_front_text{
+	position: absolute;
+	width: 48%;
+	background-color: rgba(43,173,222,0.8);
+	margin-top: -352px;
+	-moz-transition-property: margin-top;
+	-webkit-transition-property: margin-top;
+	-o-transition-property: margin-top;
+	-ms-transition-property: margin-top;
+	-moz-transition-duration:0.3s;
+	-webkit-transition-duration:0.3s;
+	-o-transition-duration:0.3s;
+	-ms-transition-duration:0.3s;
+}
+.event:hover .event_front_text{
+	margin-top: 0%;
+}
+.event{
+	float: left;
+}
+.events .content .event{
+	overflow: hidden;
+	position: relative;
 }

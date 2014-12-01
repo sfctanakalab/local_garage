@@ -15,4 +15,5 @@
  *= require Cosmo/loader
  * = require Cosmo/bootswatch
  *= require main
+ *= require component
  */
