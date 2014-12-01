@@ -1,71 +1,149 @@
 
 <div class="top_image">
 	<div class="mask"></div>
-	<video autoplay loop muted>
+	<video id="top_video" autoplay loop muted>
 		<source src="http://web.sfc.keio.ac.jp/~t13954tm/movie/sample.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
   	</video>
   	<div id="lets_print">
   		<h1>Fabricate your idea</h1>
   		<h4>Our service wants to help you to realize your idea in very early stage.</h4>
-  		<h5 onclick="scrollToHowtouse();">How to Use</h5>
+  		<div id="margin_top_by_windowsize" class="find_3d_printer">
+		    <span><h4><%= link_to "Browse Printers",  printers_path, 'data-no-turbolink' => true %></h4></span>
+		</div>
   	</div>
-</div>
-<div class="find_3d_printer">
-
-    <h4><%= link_to "Browse Printers",  printers_path, 'data-no-turbolink' => true %></h4>
 </div>
 <div class="custom_container">
 	<div class="how_to_use">
 		<div class="title">
 			<h2>HOW TO USE LOCAL GARAGE</h2>
-
+			<div class="under_line_black"></div>
 		</div>
 		<div class="content">
 			<ul>
 				<li name="how_to_use_content_li">
 					<div class="li_inside">
-						<div class="li_table_cell table_cell_left" name="table_cell">
-							<div class="how_to_use_img" name="how_to_use_img"><%= image_tag('icon-loupe.gif', :name=>"how_to_use_img") %></div>
-							<h3>Find your 3D printer</h3>
-							<div class="under_line" name="under_line_has_space"></div>
+						<div id="" class="li_table_cell table_cell_left" name="table_cell">
+							<div class="how_to_use_img" name="how_to_use_img"><%= image_tag('activator.jpg', :name=>"") %></div>
 						</div>
-						<div class="li_table_cell table_cell_right" name="table_cell">
-							<p name="text_has_space">At first, please search your 3D printer located around you. Many types of 3D printers has been registered.
+						<div class="li_table_cell table_cell_right space_left" name="table_cell">
+							<h3 name="text_has_space"><span>3D</span>データをオンラインで<br>いますぐプリント</h3>
+							<div class="under_line" name="under_line_has_space"></div>
+							<p name="text_has_space">もしあなたの家、あるいは会社や学校に3Dプリンタがなくても、あなたのアイディアをカタチにできます。Local garageは、オンラインから近くのガレージに3Dプリントのオーダーをすることを可能にします。必要なものは、カタチにしたい3Dデータだけです。
 							<br>
 							<!--Details -> Our service wants to help you to realize your idea in early stage. To fabricate your idea, we provide options of material property, colour, printer resolution. You can search the best 3D printer to fabricate your idea.--></p>
-							<p class="color_red"><small>More</small></p>
+							<p class="color_blue"><small>More</small></p>
 						</div>
 					</div>
 				</li>
 				<li name="how_to_use_content_li">
-					<div class="li_inside">
-						<div class="li_table_cell table_cell_left" name="table_cell">
-							<div class="how_to_use_img" name="how_to_use_img"><%= image_tag('icon-camera.gif', :name=>"how_to_use_img") %></div>
-							<h3>Fabricate</h3>
+					<div class="li_inside back_gray">
+						<div class="li_table_cell table_cell_right space_right" name="table_cell">
+							<h3 name="text_has_space">お気に入りのガレージと出会う</h3>
 							<div class="under_line" name="under_line_has_space"></div>
-						</div>
-						<div class="li_table_cell table_cell_right" name="table_cell">
-							<p name="text_has_space">Secondly, please post your 3D data through our service. Our service will select the best slicer and CAM software related to your printer automatically, so you just post your 3D data and finish your work almost!! Our service support XXX.file format for now.
-							<br>
+							<p name="text_has_space">Local garageでは、いまあなたの近くにあるガレージを探すことが出来ます。ガレージが見つかったら、3Dプリントをオーダーしたり、オファーして遊びに行くことも可能です。あなたのお気に入りのガレージを見つけましょう。
 							<!--Details -> Our service doesn't support the optimisation of 3D data for now. If you are a beginner of 3D CAD, we suggest you should come into our 3D CAD community. In this community, we can share how to make 3D data with free software and how to find 3D data etc. --></p>
-							<p class="color_red"><small>More</small></p>
+							<p class="color_blue"><small>More</small></p>
+						</div>
+						<div id="" class="li_table_cell table_cell_left" name="table_cell">
+							<div class="how_to_use_img" name="how_to_use_img"><%= image_tag('map.png', :name=>"") %></div>
 						</div>
 					</div>
 				</li>
 				<li name="how_to_use_content_li">
 					<div class="li_inside">
-						<div class="li_table_cell table_cell_left" name="table_cell">
-							<div class="how_to_use_img" name="how_to_use_img"><%= image_tag('icon-syorui.gif', :name=>"how_to_use_img") %></div>
-							<h3>Deliver or Pick up</h3>
-							<div class="under_line" name="under_line_has_space"></div>
+						<div id="" class="li_table_cell table_cell_left image_space_right" name="table_cell">
+							<div class="how_to_use_img" name="how_to_use_img"><%= image_tag('communication.jpg', :name=>"") %></div>
 						</div>
-						<div class="li_table_cell table_cell_right" name="table_cell">
-							<p name="text_has_space">Lastly, just print it out !! You can monitor printing process on our service. We will give completion notice of printing to your email address. After printing out, you just drop in the printer location to pick up your product.
-							<br>
+						<div class="li_table_cell table_cell_right space_left" name="table_cell">
+							<h3 name="text_has_space">コミュニケーションによるサポート</h3>
+							<div class="under_line" name="under_line_has_space"></div>
+							<p name="text_has_space">Local garageは3Dプリントにおけるあなたの不安を解消します。あなたのアイディアを実現するのにより良い方法を、Local garageを通じてもっと詳しい人にアドバイスしてもらうことが出来ます。もしあなたが3Dプリンターを使ったことがなくても、満足のいく3Dプリントを体験できるでしょう。
 							</p>
-							<p class="color_red"><small>More</small></p>
+							<p class="color_blue"><small>More</small></p>
 						</div>
 					</div>
+				</li>
+				<li name="how_to_use_content_li">
+					<div class="li_inside back_gray">
+						<div class="li_table_cell table_cell_right space_right" name="table_cell">
+							<h3 name="text_has_space">帰宅途中にスマホから</h3>
+							<div class="under_line" name="under_line_has_space"></div>
+							<p name="text_has_space">ネットに接続された3Dプリンターをいつでもどこからでも利用することができます。出力中の様子をモニタリングできる他、出力が完了した際にはメールで御知らせします。Local Garageはあなたのプロジェクト進行を加速させることを約束します。
+							<!--Details -> Our service doesn't support the optimisation of 3D data for now. If you are a beginner of 3D CAD, we suggest you should come into our 3D CAD community. In this community, we can share how to make 3D data with free software and how to find 3D data etc. --></p>
+							<p class="color_blue"><small>More</small></p>
+						</div>
+						<div id="" class="li_table_cell table_cell_left" name="table_cell">
+							<div class="how_to_use_img" name="how_to_use_img"><%= image_tag('smaho.jpg', :name=>"") %></div>
+						</div>
+					</div>
+				</li>
+				<li name="how_to_use_content_li">
+					<div class="li_inside">
+						<div id="" class="li_table_cell table_cell_left image_space_right" name="table_cell">
+							<div class="how_to_use_img" name="how_to_use_img"><%= image_tag('friends.png', :name=>"") %></div>
+						</div>
+						<div class="li_table_cell table_cell_right space_left" name="table_cell">
+							<h3 name="text_has_space">仲間との共有</h3>
+							<div class="under_line" name="under_line_has_space"></div>
+							<p name="text_has_space">Local Garageに登録した3Dプリンターを組織内で共有することができます。これによって3Dプリンターの利用状況を確認できたり、次の出力の予約などを行うことができます。また出力したデータはLocal Garage上に保存されるので、データの管理などの煩わしさがなくなります。
+							</p>
+							<p class="color_blue"><small>More</small></p>
+						</div>
+					</div>
+				</li>
+				<li name="how_to_use_content_li">
+					<div class="li_inside back_gray">
+						<div class="li_table_cell table_cell_right space_right" name="table_cell">
+							<h3 name="text_has_space">出力ミスを撲滅する</h3>
+							<div class="under_line" name="under_line_has_space"></div>
+							<p name="text_has_space">これまで、利用する3Dプリンターの機種や出力したい形状によって細かな設定を行う必要がありました。Local Garageでは膨大な量の出力結果を基にした学習プログラムとものづくりコミュニティのサポートによって、全ての人の3Dプリント体験をより簡単に、よりスマートにしていきます。
+							<!--Details -> Our service doesn't support the optimisation of 3D data for now. If you are a beginner of 3D CAD, we suggest you should come into our 3D CAD community. In this community, we can share how to make 3D data with free software and how to find 3D data etc. --></p>
+							<p class="color_blue"><small>More</small></p>
+						</div>
+						<div id="" class="li_table_cell table_cell_left" name="table_cell">
+							<div class="how_to_use_img" name="how_to_use_img"><%= image_tag('kris.jpg', :name=>"") %></div>
+						</div>
+					</div>
+				</li>
+				<li name="how_to_use_content_li">
+					<div class="li_inside">
+						<div id="" class="li_table_cell table_cell_left image_space_right" name="table_cell">
+							<div class="how_to_use_img" name="how_to_use_img"><%= image_tag('koudo.gif', :name=>"") %></div>
+						</div>
+						<div class="li_table_cell table_cell_right space_left" name="table_cell">
+							<h3 name="text_has_space">より高度なものづくりへ</h3>
+							<div class="under_line" name="under_line_has_space"></div>
+							<p name="text_has_space">Local Garageでは各大学や企業と共同して、様々なCADやスライサーを実装しています。例えば、対象物をボクセル状に変換して内部の構造を自由に変化させることのできるCADを用いることで、写真のようなうさぎを出力することができます。Local Garageでは研究者と利用者との架け橋となることで、ものづくり技術の底上げに貢献します。
+							</p>
+							<p class="color_blue"><small>More</small></p>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="events">
+		<div class="title">
+			<h2>イベント</h2>
+			<div class="under_line_black"></div>
+		</div>
+		<div class="content">
+			<ul>
+				<li class="event col_left">
+					<div class="event_front_text" name="col_text">
+						<div class="event_date"><p><strong>Dec.26 2014</strong></p></div>
+						<h4>クリスマスイベント</h4>
+						<p>日本国内のFabLab＋ファブ施設</p>
+						<p>3Dプリンターからクリスマスプレゼントがやってくる！！</p>
+					</div>
+					<div id="col_image" class="event_back_image"><img src="/assets/kris_1.jpg"></div>
+				</li>
+				<li class="event">
+					<div class="event_front_text" name="col_text">
+						<div class="event_date"><p><strong>Jan.1 2015</strong></p></div>
+						<h4>年賀もの企画</h4>
+					</div>
+					<div id="col_image" class="event_back_image"><img src="/assets/syou.jpg"></div>
 				</li>
 			</ul>
 		</div>
@@ -121,16 +199,16 @@ function changeHeaderColor() {
 	}
 	//document.getElementById('new_printer_id').style.display = "none";
 }
-changeHeaderColor();
+//changeHeaderColor();
 
-window.onscroll = function () {
+/*window.onscroll = function () {
     var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
     if(scrollY >= 400) {
     	document.getElementById('header_wrapper').style.backgroundColor = "rgba(10,10,10,0.5)";
     }else{
     	document.getElementById('header_wrapper').style.backgroundColor = "rgba(0,0,0,0)";
     }
-}
+}*/
 
 function scrollToHowtouse() {
 	scrollTo(0,360);
@@ -140,6 +218,11 @@ function changeLayout() {
 	var tableCell = document.getElementsByName('table_cell');
 	var textHasSpace = document.getElementsByName('text_has_space');
 	var underLineHasSpace = document.getElementsByName('under_line_has_space');
+	var topVideo = document.getElementById('top_video');
+	var marginTopByWindowsize = document.getElementById('margin_top_by_windowsize');
+	var howToUseImg = document.getElementsByName('how_to_use_img');
+	var colImage = document.getElementById('col_image');
+	var colText = document.getElementsByName('col_text');
 	if(window.innerWidth < 510){
 		for(var i = 0; i < tableCell.length; i++){
 			tableCell[i].style.display = "table-row";
@@ -147,6 +230,8 @@ function changeLayout() {
 		for(var i = 0; i < textHasSpace.length; i++){
 			textHasSpace[i].style.marginTop = "15%";
 		}
+		topVideo.style.height = "100%";
+		marginTopByWindowsize.style.marginTop = "10%";
 	}else{
 		for(var i = 0; i < tableCell.length; i++){
 			tableCell[i].style.display = "table-cell";
@@ -154,6 +239,15 @@ function changeLayout() {
 		for(var i = 0; i < textHasSpace.length; i++){
 			textHasSpace[i].style.marginTop = "0px";
 		}
+		topVideo.style.width = "100%";
+		marginTopByWindowsize.style.marginTop = "70px";
+	}
+	for(var i = 0; i < howToUseImg.length; i++){
+		howToUseImg[i].style.height = howToUseImg[i].offsetWidth + "px";
+	}
+	for(var i = 0; i < colText.length; i++){
+		colText[i].style.width = colImage.offsetWidth + "px";
+		colText[i].style.height = colImage.offsetHeight + "px";
 	}
 }
 window.addEventListener('load', changeLayout, false);
