@@ -22,7 +22,8 @@ test:
 
 production:
   <<: *default
-  database: dc589aecgfat4u
+  database: d2fc5sd2uudhuj
+  
   port: 5432
-  username: mjquhzqxuvqbvg
-  password: G1NkQa4YqUYnLdP3DTrh9w7Jva
+  username: dbepvhtqtzfqbl
+  password: ZcC0_DudfoepPn20J-lFtldxRL
