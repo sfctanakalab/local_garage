@@ -23,13 +23,6 @@ ActiveRecord::Schema.define(version: 20141027214951) do
     t.datetime "updated_at"
   end
 
-  create_table "filaments", force: true do |t|
-    t.string   "material"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "color"
-  end
-
   create_table "maps", force: true do |t|
     t.string   "title"
     t.string   "description"
@@ -43,18 +36,6 @@ ActiveRecord::Schema.define(version: 20141027214951) do
   create_table "options", force: true do |t|
     t.boolean "is_checked", default: true, null: false
   end
-
-  create_table "printer_filament_links", force: true do |t|
-    t.integer  "printer_id"
-    t.integer  "filament_id"
-    t.integer  "status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "printer_filament_links", ["filament_id"], name: "index_printer_filament_links_on_filament_id"
-  add_index "printer_filament_links", ["printer_id", "filament_id"], name: "index_printer_filament_links_on_printer_id_and_filament_id", unique: true
-  add_index "printer_filament_links", ["printer_id"], name: "index_printer_filament_links_on_printer_id"
 
   create_table "printers", force: true do |t|
     t.string   "machinemodel"
@@ -72,17 +53,9 @@ ActiveRecord::Schema.define(version: 20141027214951) do
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "title"
     t.binary   "image"
     t.string   "material"
     t.string   "color"
-  end
-
-  create_table "printers_filaments", force: true do |t|
-    t.integer  "printer_id"
-    t.integer  "filament_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "printers_users", force: true do |t|
