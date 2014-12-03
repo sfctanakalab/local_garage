@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20141027214951) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "data", force: true do |t|
     t.string   "stl_url"
     t.string   "gcode_url"
@@ -21,6 +24,13 @@ ActiveRecord::Schema.define(version: 20141027214951) do
     t.string   "data_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "filaments", force: true do |t|
+    t.string   "material"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "color"
   end
 
   create_table "maps", force: true do |t|
@@ -36,6 +46,18 @@ ActiveRecord::Schema.define(version: 20141027214951) do
   create_table "options", force: true do |t|
     t.boolean "is_checked", default: true, null: false
   end
+
+  create_table "printer_filament_links", force: true do |t|
+    t.integer  "printer_id"
+    t.integer  "filament_id"
+    t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "printer_filament_links", ["filament_id"], name: "index_printer_filament_links_on_filament_id", using: :btree
+  add_index "printer_filament_links", ["printer_id", "filament_id"], name: "index_printer_filament_links_on_printer_id_and_filament_id", unique: true, using: :btree
+  add_index "printer_filament_links", ["printer_id"], name: "index_printer_filament_links_on_printer_id", using: :btree
 
   create_table "printers", force: true do |t|
     t.string   "machinemodel"
@@ -53,9 +75,17 @@ ActiveRecord::Schema.define(version: 20141027214951) do
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "title"
     t.binary   "image"
     t.string   "material"
     t.string   "color"
+  end
+
+  create_table "printers_filaments", force: true do |t|
+    t.integer  "printer_id"
+    t.integer  "filament_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "printers_users", force: true do |t|
@@ -67,8 +97,8 @@ ActiveRecord::Schema.define(version: 20141027214951) do
     t.integer  "relation"
   end
 
-  add_index "printers_users", ["printer_id"], name: "index_printers_users_on_printer_id"
-  add_index "printers_users", ["user_id"], name: "index_printers_users_on_user_id"
+  add_index "printers_users", ["printer_id"], name: "index_printers_users_on_printer_id", using: :btree
+  add_index "printers_users", ["user_id"], name: "index_printers_users_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -85,7 +115,7 @@ ActiveRecord::Schema.define(version: 20141027214951) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
